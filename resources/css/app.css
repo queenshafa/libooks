@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "remixicon/fonts/remixicon.css";
+
+@plugin '@tailwindcss/forms';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* =========================
+  THEME
+========================= */
+@theme {
+    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+
+    --font-display: "Sora", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+}
+
+/* =========================
+  BASE
+========================= */
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+
+    body {
+        font-family: var(--font-body);
+    }
+
+    /* animations (WAJIB di base) */
+    @keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes blobFloat {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        33% {
+            transform: translate(-20px, 20px) scale(1.05);
+        }
+        66% {
+            transform: translate(15px, -10px) scale(0.95);
+        }
+    }
+
+    @keyframes cardEnter {
+        from {
+            opacity: 0;
+            transform: translateY(32px) scale(0.97);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes logoBounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-4px);
+        }
+    }
+}
+
+/* =========================
+  UTILITIES
+========================= */
+@layer utilities {
+    /* font */
+    .font-display {
+        font-family: var(--font-display);
+    }
+
+    /* animated gradient */
+    .bg-animated {
+        @apply bg-[length:400%_400%];
+        background-image: linear-gradient(
+            135deg,
+            #db4437,
+            #f4b400,
+            #0f9d58,
+            #4285f4,
+            #db4437
+        );
+        animation: gradientShift 10s ease infinite;
+    }
+
+    /* blobs */
+    .blob {
+        @apply absolute rounded-full opacity-30 blur-[90px];
+        animation: blobFloat 9s ease-in-out infinite;
+    }
+
+    .blob-1 {
+        @apply w-[360px] h-[360px] top-[-100px] right-[-100px] bg-[#DB4437];
+        animation-delay: 0s;
+    }
+
+    .blob-2 {
+        @apply w-[260px] h-[260px] bottom-[-40px] left-[-60px] bg-[#4285F4];
+        animation-delay: 4s;
+    }
+
+    .blob-3 {
+        @apply w-[200px] h-[200px] top-[30%] right-[15%] bg-[#F4B400];
+        animation-delay: 2s;
+    }
+
+    /* card */
+    .card-enter {
+        animation: cardEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* input focus */
+    .input-field:focus {
+        @apply outline-none ring-4 ring-[#DB4437]/20;
+    }
+
+    /* button gradient */
+    .btn-gradient {
+        @apply relative overflow-hidden transition-all duration-300;
+        background: linear-gradient(135deg, #db4437, #f4b400);
+    }
+
+    .btn-gradient::before {
+        content: "";
+        @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+        background: linear-gradient(135deg, #c33b2f, #d9a000);
+    }
+
+    .btn-gradient:hover::before {
+        @apply opacity-100;
+    }
+
+    .btn-gradient:active {
+        @apply scale-95;
+    }
+
+    .btn-gradient span {
+        @apply relative z-10;
+    }
+
+    /* divider */
+    .divider {
+        @apply flex items-center gap-3;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        @apply flex-1 h-px bg-gray-200;
+    }
+
+    /* logo */
+    .logo-icon {
+        animation: logoBounce 2s ease-in-out infinite;
+    }
+
+    /* badge */
+    .badge-blue {
+        @apply bg-blue-50 text-blue-700;
+    }
+    .badge-green {
+        @apply bg-green-50 text-green-800;
+    }
+    .badge-yellow {
+        @apply bg-yellow-50 text-yellow-800;
+    }
+    .badge-red {
+        @apply bg-red-50 text-red-800;
+    }
+
+    /* strength bar */
+    .strength-bar {
+        @apply h-[3px] rounded-full bg-gray-200 transition-all duration-300;
+    }
+
+    /* step */
+    .step-dot {
+        @apply w-2 h-2 rounded-full bg-gray-200 transition-all duration-300;
+    }
+
+    .step-dot.active {
+        @apply bg-[#DB4437] scale-125;
+    }
+
+    .step-dot.done {
+        @apply bg-[#0F9D58];
+    }
+
+    .form-input {
+        @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all;
+    }
+}

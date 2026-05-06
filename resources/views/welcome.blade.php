@@ -1,0 +1,677 @@
+@extends('front.base')
+
+@section('content')
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center px-10 py-16 bg-gray">
+        <h1 class="font-instrument-serif text-secondary text-8xl lg:text-[200px] text-center">
+            Your Entire <br />
+            World, Indexed.
+        </h1>
+        <div
+            class="flex flex-col lg:min-w-4xl lg:flex-row lg:justify-between lg:items-center lg:gap-y-20 border-t border-t-white pt-3 mt-8">
+            <p class="text-white font-light tracking-tight lg:w-sm">
+                Beyond just a collection of files, Libooks is your personal sanctuary
+                for stories. From timeless classics to the latest research, everything
+                you need is just one click away.
+            </p>
+            <a href="{{ route('front.all-books') }}"
+                class="inline-flex items-center justify-between gap-4 bg-primary text-white py-2 pl-8 pr-2 rounded-full mt-4 lg:max-w-sm">
+                <span class="text-base font-semibold tracking-tight uppercase">
+                    See Book Collections
+                </span>
+
+                <div class="flex items-center justify-center bg-white text-[#C25934] w-10 h-10 rounded-full">
+                    <i class="ri-arrow-right-up-line text-xl"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Books Section -->
+    <section class="min-h-screen px-6 py-4 bg-secondary">
+        <h2 class="text-5xl lg:text-9xl font-instrument-serif">
+            <span class="font-helvetica text-2xl font-medium tracking-tight">(Newest Books)</span>
+            Find your next favorite among our latest arrivals.
+        </h2>
+
+        <div class="flex overflow-x-scroll gap-0 scrollbar-hide snap-x snap-mandatory mt-16">
+            @forelse ($books as $book)
+                <a href="{{ route('front.detail', $book->id) }}">
+                    <!-- Card -->
+                    <div
+                        class="container min-w-[90%] lg:min-w-md py-4 border-l border-r border-l-gray-400 border-r-gray-400 px-8 mt-20">
+                        <div class="flex justify-between items-start gap-4">
+                            <div class="flex-1">
+                                <p class="font-instrument-serif text-8xl leading-none">{{ $loop->iteration }}</p>
+                                <h3 class="font-bold text-xl tracking-tight mt-12 max-w-[150px]">
+                                    {{ $book->title }}
+                                </h3>
+                            </div>
+
+                            <div class="flex-1 flex justify-end">
+                                <img src="{{ asset('storage/' . $book->cover) }}" alt="The Let Them Theory"
+                                    class="w-full max-w-30 shadow-lg" />
+                            </div>
+                        </div>
+                        <p class="text-sm tracking-tight font-light my-4">
+                            {{ $book->description }}
+                        </p>
+                        <!-- Category Badge -->
+                        <span
+                            class="bg-primary text-white p-2 rounded-full text-sm tracking-tight">{{ $book->category->name }}</span>
+                    </div>
+                </a>
+            @empty
+                <p class="text-center text-2xl font-bold">No new books currently available! Check back later!</p>
+            @endforelse
+
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="relative min-h-screen overflow-hidden flex flex-col p-6 pb-12">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover -z-10">
+            <source src="{{ asset('assets/category-video.mp4') }}" type="video/mp4" />
+        </video>
+
+        <div class="mb-6 text-white lg:px-30 lg:mt-10">
+            <h2 class="text-lg font-light tracking-widest uppercase">
+                Book Categories
+            </h2>
+            <p class="text-4xl lg:text-6xl font-instrument-serif opacity-90 mt-2 lg:mt-6 lg:max-w-2xl">
+                Discover books tailored to your interests.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:px-30 lg:mt-10">
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+            <div
+                class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
+                <i class="ri-code-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Borrowing Section -->
+    <section class="px-4 py-4 bg-gray" id="booksBorrowing">
+        <p class="text-8xl text-center text-secondary">✦✦✦✦✦✦</p>
+
+        <!-- Mobile -->
+        <div class="lg:hidden h-[calc(100vh-132px)] p-4 bg-primary rounded-2xl mt-2 flex flex-col">
+            <div class="flex flex-col h-full">
+                <div>
+                    <h2 class="text-5xl font-light opacity-90 mt-2 uppercase shrink-0">
+                        Borrowing books? <br />
+                        <span class="italic font-instrument-serif">As easy as 1-2-3!</span>
+                    </h2>
+                    <p class="text-base tracking-tight font-light mt-4 shrink-0">
+                        No registration required. Just follow these 3 steps and start
+                        reading.
+                    </p>
+                    <a href="{{ route('front.all-books') }}"
+                        class="shrink-0 w-full inline-flex items-center justify-between gap-4 bg-primary border border-gray text-white rounded-sm py-2 pl-4 pr-2 mt-4">
+                        <span class="text-base text-gray font-semibold tracking-wide uppercase">I want to borrow
+                            books!</span>
+                        <div class="flex items-center justify-center bg-gray text-secondary w-10 h-10 rounded-sm">
+                            <i class="ri-arrow-right-up-line text-xl"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="relative flex-1 overflow-y-auto scrollbar-hide mt-8">
+                    <div
+                        class="sticky top-0 h-64 flex flex-col justify-between p-4 bg-primary border border-gray rounded-2xl">
+                        <div class="flex justify-between">
+                            <h3 class="text-6xl font-light tracking-tight">Choose Books</h3>
+                            <p class="text-4xl">01</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Find the book that you need
+                        </p>
+                    </div>
+                    <div
+                        class="sticky top-20 h-64 flex flex-col justify-between p-4 bg-primary border border-gray rounded-2xl mt-4">
+                        <div class="flex justify-between">
+                            <h3 class="text-6xl font-light tracking-tight">
+                                Fill Out Form
+                            </h3>
+                            <p class="text-4xl">02</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Complete the borrowing form
+                        </p>
+                    </div>
+                    <div
+                        class="sticky top-40 h-64 flex flex-col justify-between p-4 bg-primary border border-gray rounded-2xl mt-4">
+                        <div class="flex justify-between">
+                            <h3 class="text-6xl font-light tracking-tight">Pick Up</h3>
+                            <p class="text-4xl">03</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Come and get your books!
+                        </p>
+                    </div>
+                    <div class="h-64"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop -->
+        <div id="borrow-scroll-section" class="hidden lg:block rounded-2xl mt-2 bg-primary" style="height: 250vh">
+            <div class="sticky top-0 h-screen flex items-center px-60 justify-between overflow-hidden">
+                <!-- Left -->
+                <div class="flex flex-col flex-shrink-0 max-w-md py-4">
+                    <h2 class="text-7xl font-light opacity-90 uppercase">
+                        Borrowing books?<br />
+                        <span class="italic text-8xl font-instrument-serif">As easy as 1-2-3!</span>
+                    </h2>
+                    <p class="text-lg tracking-tight font-light mt-4">
+                        No registration required. Just follow these 3 steps and start
+                        reading.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center justify-between gap-4 bg-primary border border-gray rounded-sm py-2 pl-4 pr-2 mt-6 max-w-sm">
+                        <span class="text-base text-gray font-semibold tracking-wide uppercase">I want to borrow
+                            books!</span>
+                        <div class="flex items-center justify-center bg-gray text-secondary w-10 h-10 rounded-sm">
+                            <i class="ri-arrow-right-up-line text-xl"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Right -->
+                <div class="relative flex-1 max-w-sm" style="height: 320px">
+                    <div id="borrow-card-0"
+                        class="borrow-card absolute inset-0 h-84 flex flex-col justify-between p-6 bg-primary border border-gray rounded-2xl"
+                        style="
+                transform: translateY(120%) rotate(-4deg);
+                opacity: 0;
+                z-index: 1;
+                will-change: transform, opacity;
+              ">
+                        <div class="flex justify-between">
+                            <h3 class="text-5xl font-light tracking-tight">Choose Books</h3>
+                            <p class="text-4xl">01</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Find the book that you need
+                        </p>
+                    </div>
+
+                    <div id="borrow-card-1"
+                        class="borrow-card absolute inset-0 h-84 flex flex-col justify-between p-6 bg-primary border border-gray rounded-2xl"
+                        style="
+                transform: translateY(120%) rotate(3deg);
+                opacity: 0;
+                z-index: 2;
+                will-change: transform, opacity;
+              ">
+                        <div class="flex justify-between">
+                            <h3 class="text-5xl font-light tracking-tight">
+                                Fill Out Form
+                            </h3>
+                            <p class="text-4xl">02</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Complete the borrowing form
+                        </p>
+                    </div>
+
+                    <div id="borrow-card-2"
+                        class="borrow-card absolute inset-0 h-84 flex flex-col justify-between p-6 bg-primary border border-gray rounded-2xl"
+                        style="
+                transform: translateY(120%) rotate(-1deg);
+                opacity: 0;
+                z-index: 3;
+                will-change: transform, opacity;
+              ">
+                        <div class="flex justify-between">
+                            <h3 class="text-5xl font-light tracking-tight">Pick Up</h3>
+                            <p class="text-4xl">03</p>
+                        </div>
+                        <p class="font-instrument-serif text-2xl">
+                            Come and get your books!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="min-h-screen bg-gray-900">
+        <div class="relative w-full h-screen overflow-hidden cards-wrapper">
+            <!-- Card 1 -->
+            <img src="{{ asset('/assets/about-us-img-1.jpg') }}" class="bg-layer bg-card bg-card-1" alt="Proses Cepat" />
+
+            <!-- Card 2 -->
+            <img src="{{ asset('/assets/about-us-img-2.jpg') }}" class="bg-layer bg-card bg-card-2" alt="Pemrograman" />
+
+            <!-- Card 3 -->
+            <img src="{{ asset('/assets/about-us-img-3.jpg') }}" class="bg-layer bg-card bg-card-3" alt="Desain" />
+
+            <!-- Card 4-->
+            <img src="{{ asset('/assets/about-us-img-4.jpg') }}" class="bg-layer bg-card bg-card-4" alt="Jaringan" />
+
+            <!-- Top vignette -->
+            <div
+                class="absolute inset-x-0 top-0 h-3/5 bg-linear-to-b from-black/80 to-transparent z-10 pointer-events-none">
+            </div>
+            <!-- Bottom vignette -->
+            <div
+                class="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-black/80 to-transparent z-10 pointer-events-none">
+            </div>
+
+            <div class="relative z-20 w-full h-full flex flex-col py-8 px-8">
+                <div class="flex flex-col justify-between h-full">
+                    <p
+                        class="text-2xl lg:text-6xl text-white font-medium tracking-tight opacity-90 mt-2 lg:mt-40 shrink-0 max-w-2xl lg:max-w-full">
+                        We believe knowledge should be seamless. Libooks offers a curated
+                        collection of titles through a high-performance interface designed
+                        for speed. Discover, click, and borrow. It's that simple.
+                    </p>
+
+                    <p class="invisible lg:visible text-white mt-8 font-light tracking-tight">
+                        Why Choose Us?
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 mt-10 mb-6 lg:max-w-5xl">
+                        <!-- Card 1 -->
+                        <div
+                            class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
+                            <h3 class="card-title text-lg font-medium">Instant Access</h3>
+                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                                Request and borrow your favorite titles in seconds. No
+                                waiting, just reading.
+                            </p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div
+                            class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
+                            <h3 class="card-title text-lg font-medium">
+                                One-Click Borrowing
+                            </h3>
+                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                                We've removed the hurdles. Borrowing a digital copy is now as
+                                fast as a single click.
+                            </p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div
+                            class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
+                            <h3 class="card-title text-lg font-medium">
+                                Premium Collection
+                            </h3>
+                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                                Access a hand-picked selection of high-quality titles across
+                                technology, design, and more.
+                            </p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div
+                            class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
+                            <h3 class="card-title text-lg font-medium">
+                                Boundless Knowledge
+                            </h3>
+                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                                Freedom of information at your fingertips. Explore our entire
+                                catalog without any hidden barriers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="min-h-screen px-8 py-8 bg-secondary">
+        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center">
+            <div>
+                <h2 class="text-6xl font-instrument-serif opacity-90 mt-2 shrink-0 z-10 lg:max-w-md py-4 lg:text-9xl">
+                    What our students say about
+                    <span class="text-primary px-2 py-0 z-0">Libooks?</span>
+                </h2>
+                <div class="bg-gray max-w-xs p-9 mt-10 rounded-2xl lg:mt-10">
+                    <p class="text-white text-lg font-light tracking-tight">
+                        Hear what your friends say about their experience using Libooks!
+                    </p>
+                </div>
+            </div>
+            <div class="relative flex-1 overflow-y-auto scrollbar-hide lg:max-w-4xl">
+                <!-- Card -->
+                <div class="flex gap-x-3 mt-8 border-t border-b border-t-gray border-b-gray py-4">
+                    <div>
+                        <div class="bg-gray py-2 px-6 rounded-full">
+                            <p class="text-white">01</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-5">
+                        <!-- User -->
+                        <div class="flex gap-x-2">
+                            <div>
+                                <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/02/22/151578876/4eb5ed966e5bbf9b7a30e3b1dfb5e436_2425596146220050144.png?x-oss-process=image%2Fformat%2Cwebp"
+                                    alt="Eula Lawrence" class="w-10 rounded-full" />
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h3 class="font-semibold text-lg leading-4">Eula Lawrence</h3>
+                                <p class="font-light tracking-tight">
+                                    University of Toronto, CA
+                                </p>
+                            </div>
+                        </div>
+                        <p class="font-medium tracking-tight">
+                            "The 'no-account' feature is a total game-changer for my
+                            research workflow. Usually, I waste ten minutes just trying to
+                            reset a password or verifying an email, but with Libooks, I can
+                            jump from a Google search straight into a textbook in seconds.
+                            It’s the fastest way to get the information I need when I’m
+                            working on tight school deadlines."
+                        </p>
+                        <p class="text-amber-400 text-2xl text-end">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Card -->
+                <div class="flex gap-x-3 border-b border-b-gray py-4">
+                    <div>
+                        <div class="bg-gray py-2 px-6 rounded-full">
+                            <p class="text-white">02</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-5">
+                        <!-- User -->
+                        <div class="flex gap-x-2">
+                            <div>
+                                <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/02/22/151578876/4eb5ed966e5bbf9b7a30e3b1dfb5e436_2425596146220050144.png?x-oss-process=image%2Fformat%2Cwebp"
+                                    alt="Eula Lawrence" class="w-10 rounded-full" />
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h3 class="font-semibold text-lg leading-4">Lara Croft</h3>
+                                <p class="font-light tracking-tight">Archeologist</p>
+                            </div>
+                        </div>
+                        <p class="font-medium tracking-tight">
+                            "I’ve used countless digital libraries, but Libooks stands out
+                            because of its absolute commitment to a clean, distraction-free
+                            interface. The glassmorphism UI isn't just eye candy; it
+                            actually makes browsing through technical archives feel like a
+                            premium experience rather than a chore. It’s rare to find a
+                            platform that balances aesthetics and performance so perfectly."
+                        </p>
+                        <p class="text-amber-400 text-2xl text-end">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Card -->
+                <div class="flex gap-x-3 border-b border-b-gray py-4">
+                    <div>
+                        <div class="bg-gray py-2 px-6 rounded-full">
+                            <p class="text-white">03</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-5">
+                        <!-- User -->
+                        <div class="flex gap-x-2">
+                            <div>
+                                <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/02/22/151578876/4eb5ed966e5bbf9b7a30e3b1dfb5e436_2425596146220050144.png?x-oss-process=image%2Fformat%2Cwebp"
+                                    alt="Eula Lawrence" class="w-10 rounded-full" />
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h3 class="font-semibold text-lg leading-4">Tifa Lockhart</h3>
+                                <p class="font-light tracking-tight">SMK RUS Kudus</p>
+                            </div>
+                        </div>
+                        <p class="font-medium tracking-tight">
+                            "I love how Libooks treats digital borrowing like a modern
+                            utility. The 3-step process is so simple that I found myself
+                            halfway through a new design book before I even realized I
+                            hadn't signed in. It’s refreshing to see a platform that
+                            respects the user's time and privacy while offering such a
+                            curated and high-quality collection of titles."
+                        </p>
+                        <p class="text-amber-400 text-2xl text-end">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Card -->
+                <div class="flex gap-x-3 py-4">
+                    <div>
+                        <div class="bg-gray py-2 px-6 rounded-full">
+                            <p class="text-white">04</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-y-5">
+                        <!-- User -->
+                        <div class="flex gap-x-2">
+                            <div>
+                                <img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/02/22/151578876/4eb5ed966e5bbf9b7a30e3b1dfb5e436_2425596146220050144.png?x-oss-process=image%2Fformat%2Cwebp"
+                                    alt="Eula Lawrence" class="w-10 rounded-full" />
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <h3 class="font-semibold text-lg leading-4">
+                                    P. Malika Ashalina
+                                </h3>
+                                <p class="font-light tracking-tight">Graphic Designer</p>
+                            </div>
+                        </div>
+                        <p class="font-medium tracking-tight">
+                            "I’ve used countless digital libraries, but Libooks stands out
+                            because of its absolute commitment to a clean, distraction-free
+                            interface. The glassmorphism UI isn't just eye candy; it
+                            actually makes browsing through technical archives feel like a
+                            premium experience rather than a chore. It’s rare to find a
+                            platform that balances aesthetics and performance so perfectly."
+                        </p>
+                        <p class="text-amber-400 text-2xl text-end">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Section -->
+    <section class="min-h-screen px-4 flex flex-col items-center justify-center bg-secondary relative">
+        <div id="siap-heading-wrapper" class="sticky top-1/3 flex flex-col items-center"
+            style="
+          transition:
+            opacity 0.1s linear,
+            transform 0.1s linear;
+        ">
+            <h2 id="siap-heading"
+                class="text-9xl text-center font-semibold tracking-tighter text-gray/50 transition-all duration-100 lg:max-w-md py-4">
+                Ready to Dive In?
+            </h2>
+            <p class="text-center text-lg font-light tracking-tight mt-8 lg:max-w-2xl">
+                Join thousands of readers and access our entire collection instantly.
+                No sign-up required, just pure knowledge at your fingertips.
+            </p>
+        </div>
+
+        <div id="gray-cover"
+            class="sticky z-10 bottom-0 min-h-screen w-screen bg-primary flex flex-col items-center justify-center"
+            style="transform: translateY(100%); transition: transform 0.1s linear">
+            <div class="flex flex-col w-72">
+                <a href="{{ route('front.all-books') }}"
+                    class="font-light tracking-tight text-white border border-white py-4 px-12 text-center">
+                    See Book Collections
+                </a>
+                <a href="#booksBorrowing"
+                    class="font-light tracking-tight text-white border border-white py-4 px-12 text-center mt-8">
+                    Learn How to Borrow
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="px-4 py-4 bg-gray text-white text-center" id="contact">
+        <!-- <p><i class="ri-asterisk"></i></p> -->
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <!-- Front -->
+                <div class="relative transition-transform duration-500 group-hover:[transform:rotateY(180deg)]"
+                    style="transform-style: preserve-3d">
+                    <!-- Front face -->
+                    <div style="backface-visibility: hidden">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <h3 class="text-3xl font-medium tracking-tight">
+                            Operational Hours
+                        </h3>
+                    </div>
+
+                    <!-- Back face -->
+                    <div class="absolute inset-0 flex items-center justify-center px-6"
+                        style="backface-visibility: hidden; transform: rotateY(180deg)">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <p class="text-base font-light tracking-tight text-center">
+                            Mon - Fri: 07:30 - 18:30 <br />
+                            Saturday: 09:30 - 20:30 <br />
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <!-- Front -->
+                <div class="relative transition-transform duration-500 group-hover:[transform:rotateY(180deg)]"
+                    style="transform-style: preserve-3d">
+                    <!-- Front face -->
+                    <div style="backface-visibility: hidden">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <h3 class="text-3xl font-medium tracking-tight">Contact Us</h3>
+                    </div>
+
+                    <!-- Back face -->
+                    <div class="absolute inset-0 flex items-center justify-center px-6"
+                        style="backface-visibility: hidden; transform: rotateY(180deg)">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <p class="text-base font-light tracking-tight text-center">
+                            +62 1234 5678 90 <br />
+                            hello@libooks.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <!-- Front -->
+                <div class="relative transition-transform duration-500 group-hover:[transform:rotateY(180deg)]"
+                    style="transform-style: preserve-3d">
+                    <!-- Front face -->
+                    <div style="backface-visibility: hidden">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <h3 class="text-3xl font-medium tracking-tight">
+                            Borrowing Conditions
+                        </h3>
+                    </div>
+
+                    <!-- Back face -->
+                    <div class="absolute inset-0 flex items-center justify-center px-6"
+                        style="backface-visibility: hidden; transform: rotateY(180deg)">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <p class="text-base font-light tracking-tight text-center">
+                            Show your book loan card or screenshot of proof of loan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <!-- Front -->
+                <div class="relative transition-transform duration-500 group-hover:[transform:rotateY(180deg)]"
+                    style="transform-style: preserve-3d">
+                    <!-- Front face -->
+                    <div style="backface-visibility: hidden">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <h3 class="text-3xl font-medium tracking-tight">Address</h3>
+                    </div>
+
+                    <!-- Back face -->
+                    <div class="absolute inset-0 flex items-center justify-center px-6"
+                        style="backface-visibility: hidden; transform: rotateY(180deg)">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <p class="text-base font-light tracking-tight text-center">
+                            5376 Shelburne Rd, Shelburne, VT 05482, United States
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <div id="map" class="w-full h-96 lg:h-60 rounded-lg mt-4"></div>
+        </div>
+    </section>
+@endsection
