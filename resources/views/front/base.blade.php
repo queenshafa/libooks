@@ -148,12 +148,12 @@
     </footer>
 
     <!-- Cursor -->
-    <div id="cursor"
+    {{-- <div id="cursor"
         class="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-9999 mix-blend-difference">
-    </div>
-    <div id="follower"
+    </div> --}}
+    {{-- <div id="follower"
         class="fixed top-0 left-0 w-7.5 h-7.5 border-2 border-white rounded-full opacity-50 pointer-events-none -translate-x-1/2 -translate-y-1/2 z-9999 mix-blend-difference transition-[transform,width,height] duration-150 ease-out">
-    </div>
+    </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

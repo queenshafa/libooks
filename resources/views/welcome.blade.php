@@ -34,12 +34,12 @@
             Find your next favorite among our latest arrivals.
         </h2>
 
-        <div class="flex overflow-x-scroll gap-0 scrollbar-hide snap-x snap-mandatory mt-16">
+        <div class="flex overflow-x-scroll gap-0 scrollbar-hide snap-x snap-mandatory lg:mt-16">
             @forelse ($books as $book)
                 <a href="{{ route('front.detail', $book->id) }}">
                     <!-- Card -->
                     <div
-                        class="container min-w-[90%] lg:min-w-md py-4 border-l border-r border-l-gray-400 border-r-gray-400 px-8 mt-20">
+                        class="container min-w-sm lg:min-w-md py-4 border-l border-r border-l-gray-400 border-r-gray-400 px-8 mt-20">
                         <div class="flex justify-between items-start gap-4">
                             <div class="flex-1">
                                 <p class="font-instrument-serif text-8xl leading-none">{{ $loop->iteration }}</p>
@@ -87,49 +87,49 @@
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
                 <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <p class="font-light tracking-tight text-lg">Programming</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-book-3-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">History</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-magic-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Fantasy</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-heart-3-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Romance</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-search-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Mystery</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-pencil-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Biography</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-line-chart-line text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">Self-Improvement</p>
             </div>
             <div
                 class="h-40 lg:h-60 w-full text-center flex flex-col items-center justify-center text-white bg-white-400 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40">
-                <i class="ri-code-line text-2xl"></i>
-                <p class="font-light tracking-tight text-lg">Pemrograman</p>
+                <i class="ri-sketching text-2xl"></i>
+                <p class="font-light tracking-tight text-lg">etc</p>
             </div>
         </div>
     </section>
 
     <!-- Books Borrowing Section -->
     <section class="px-4 py-4 bg-gray" id="booksBorrowing">
-        <p class="text-8xl text-center text-secondary">✦✦✦✦✦✦</p>
+        <p class="text-8xl text-center text-secondary">✦✦✦✦✦</p>
 
         <!-- Mobile -->
         <div class="lg:hidden h-[calc(100vh-132px)] p-4 bg-primary rounded-2xl mt-2 flex flex-col">
@@ -299,7 +299,7 @@
             <div class="relative z-20 w-full h-full flex flex-col py-8 px-8">
                 <div class="flex flex-col justify-between h-full">
                     <p
-                        class="text-2xl lg:text-6xl text-white font-medium tracking-tight opacity-90 mt-2 lg:mt-40 shrink-0 max-w-2xl lg:max-w-full">
+                        class="text-2xl lg:text-6xl text-white font-light tracking-tight opacity-90 lg:mt-40 shrink-0 max-w-2xl lg:max-w-full">
                         We believe knowledge should be seamless. Libooks offers a curated
                         collection of titles through a high-performance interface designed
                         for speed. Discover, click, and borrow. It's that simple.
@@ -309,12 +309,12 @@
                         Why Choose Us?
                     </p>
 
-                    <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 mt-10 mb-6 lg:max-w-5xl">
+                    <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 mt-8 lg:mt-10 mb-6 lg:max-w-5xl">
                         <!-- Card 1 -->
                         <div
                             class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
-                            <h3 class="card-title text-lg font-medium">Instant Access</h3>
-                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                            <h3 class="card-title text-lg font-medium tracking-tight">Instant Access</h3>
+                            <p class="card-desc font-light tracking-tight text-base leading-snug">
                                 Request and borrow your favorite titles in seconds. No
                                 waiting, just reading.
                             </p>
@@ -323,10 +323,10 @@
                         <!-- Card 2 -->
                         <div
                             class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
-                            <h3 class="card-title text-lg font-medium">
+                            <h3 class="card-title text-lg font-medium tracking-tight">
                                 One-Click Borrowing
                             </h3>
-                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                            <p class="card-desc font-light tracking-tight text-base leading-snug">
                                 We've removed the hurdles. Borrowing a digital copy is now as
                                 fast as a single click.
                             </p>
@@ -335,10 +335,10 @@
                         <!-- Card 3 -->
                         <div
                             class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
-                            <h3 class="card-title text-lg font-medium">
+                            <h3 class="card-title text-lg font-medium tracking-tight">
                                 Premium Collection
                             </h3>
-                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                            <p class="card-desc font-light tracking-tight text-base leading-snug">
                                 Access a hand-picked selection of high-quality titles across
                                 technology, design, and more.
                             </p>
@@ -347,10 +347,10 @@
                         <!-- Card 4 -->
                         <div
                             class="card h-72 w-full p-4 flex flex-col justify-between text-white rounded-lg bg-white/10 backdrop-blur-sm cursor-pointer">
-                            <h3 class="card-title text-lg font-medium">
+                            <h3 class="card-title text-lg font-medium tracking-tight">
                                 Boundless Knowledge
                             </h3>
-                            <p class="card-desc font-medium tracking-tight text-base leading-snug">
+                            <p class="card-desc font-light tracking-tight text-base leading-snug">
                                 Freedom of information at your fingertips. Explore our entire
                                 catalog without any hidden barriers.
                             </p>
@@ -518,7 +518,7 @@
 
     <!-- Additional Section -->
     <section class="min-h-screen px-4 flex flex-col items-center justify-center bg-secondary relative">
-        <div id="siap-heading-wrapper" class="sticky top-1/3 flex flex-col items-center"
+        <div id="siap-heading-wrapper" class="sticky top-50 flex flex-col items-center"
             style="
           transition:
             opacity 0.1s linear,
@@ -535,8 +535,8 @@
         </div>
 
         <div id="gray-cover"
-            class="sticky z-10 bottom-0 min-h-screen w-screen bg-primary flex flex-col items-center justify-center"
-            style="transform: translateY(100%); transition: transform 0.1s linear">
+            class="sticky z-10 bottom-0 min-h-screen w-screen bg-primary flex flex-col ease-in items-center justify-center"
+            style="transform: translateY(100%); transition: transform 0.1s">
             <div class="flex flex-col w-72">
                 <a href="{{ route('front.all-books') }}"
                     class="font-light tracking-tight text-white border border-white py-4 px-12 text-center">
@@ -553,7 +553,66 @@
     <!-- Contact -->
     <section class="px-4 py-4 bg-gray text-white text-center" id="contact">
         <!-- <p><i class="ri-asterisk"></i></p> -->
-        <div class="grid grid-cols-1 lg:grid-cols-2">
+
+        {{-- Mobile --}}
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:hidden">
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <div class="relative">
+                    <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                    <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                    <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                    <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                    <p class="text-base font-light tracking-tight text-center">
+                        Mon - Fri: 07:30 - 18:30 <br />
+                        Saturday: 09:30 - 20:30 <br />
+                        Sunday: Closed
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Flip Card -->
+        <div class="relative py-8 px-2 group" style="perspective: 800px">
+            <div class="relative">
+                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                <p class="text-base font-light tracking-tight text-center">
+                    +62 1234 5678 90 <br />
+                    hello@libooks.com
+                </p>
+            </div>
+        </div>
+        <!-- Flip Card -->
+        <div class="relative py-8 px-2 group" style="perspective: 800px">
+            <div class="relative">
+                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                <p class="text-base font-light tracking-tight text-center">
+                    Show your book loan card <br> or screenshot of proof of loan.
+                </p>
+            </div>
+        </div>
+        <!-- Flip Card -->
+        <div class="relative py-8 px-2 group" style="perspective: 800px">
+            <div class="relative">
+                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                <p class="text-base font-light tracking-tight text-center">
+                    5376 Shelburne Rd, Shelburne, <br> VT 05482, United States
+                </p>
+            </div>
+        </div>
+        </div>
+
+        {{-- Desktop --}}
+        <div class="hidden lg:grid grid-cols-1 lg:grid-cols-2">
             <!-- Flip Card -->
             <div class="relative py-8 px-2 group" style="perspective: 800px">
                 <!-- Front -->

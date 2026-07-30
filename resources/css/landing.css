@@ -11,9 +11,9 @@
 }
 
 @layer utilities {
-    * {
+    /* * {
         cursor: none;
-    }
+    } */
 
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
