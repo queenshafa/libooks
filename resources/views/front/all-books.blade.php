@@ -7,7 +7,7 @@
         <div class="flex flex-col-reverse lg:flex lg:flex-row lg:justify-between">
             <div>
                 <a href="{{ route('welcome') }}"
-                    class="hidden lg:flex text-sm tracking-widest uppercase opacity-40 mb-4 hover:bg-slate-600 hover:text-white transition"><i
+                    class="hidden lg:flex text-sm tracking-widest uppercase mb-4 hover:text-primary transition duration-300 ease-linear"><i
                         class="ri-arrow-left-line"></i> Back</a>
                 <p class="mt-6 tracking-tight max-w-md leading-relaxed">
                     We believe the best ideas start with the right resources. That’s why
@@ -18,7 +18,7 @@
             </div>
             <div>
                 <a href="{{ route('welcome') }}"
-                    class="lg:hidden flex text-sm tracking-widest uppercase opacity-40 mb-4 hover:bg-slate-600 hover:text-white transition"><i
+                    class="lg:hidden flex text-sm tracking-widest uppercase mb-4 hover:text-primary transition duration-300 ease-linear"><i
                         class="ri-arrow-left-line"></i> Back</a>
                 <h1 class="text-5xl font-medium tracking-tight max-w-2xl leading-tight">
                     <span class="opacity-40">From our shelf, to your mind,</span> <br />
