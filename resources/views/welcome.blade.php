@@ -556,7 +556,23 @@
 
         {{-- Mobile --}}
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 lg:hidden">
+        <div class="block lg:hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:hidden">
+                <!-- Flip Card -->
+                <div class="relative py-8 px-2 group" style="perspective: 800px">
+                    <div class="relative">
+                        <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                        <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                        <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                        <p class="text-base font-light tracking-tight text-center">
+                            Mon - Fri: 07:30 - 18:30 <br />
+                            Saturday: 09:30 - 20:30 <br />
+                            Sunday: Closed
+                        </p>
+                    </div>
+                </div>
+            </div>
             <!-- Flip Card -->
             <div class="relative py-8 px-2 group" style="perspective: 800px">
                 <div class="relative">
@@ -565,50 +581,35 @@
                     <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
                     <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
                     <p class="text-base font-light tracking-tight text-center">
-                        Mon - Fri: 07:30 - 18:30 <br />
-                        Saturday: 09:30 - 20:30 <br />
-                        Sunday: Closed
+                        +62 1234 5678 90 <br />
+                        hello@libooks.com
                     </p>
                 </div>
             </div>
-        </div>
-        <!-- Flip Card -->
-        <div class="relative py-8 px-2 group" style="perspective: 800px">
-            <div class="relative">
-                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
-                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
-                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
-                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
-                <p class="text-base font-light tracking-tight text-center">
-                    +62 1234 5678 90 <br />
-                    hello@libooks.com
-                </p>
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <div class="relative">
+                    <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                    <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                    <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                    <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                    <p class="text-base font-light tracking-tight text-center">
+                        Show your book loan card <br> or screenshot of proof of loan.
+                    </p>
+                </div>
             </div>
-        </div>
-        <!-- Flip Card -->
-        <div class="relative py-8 px-2 group" style="perspective: 800px">
-            <div class="relative">
-                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
-                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
-                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
-                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
-                <p class="text-base font-light tracking-tight text-center">
-                    Show your book loan card <br> or screenshot of proof of loan.
-                </p>
+            <!-- Flip Card -->
+            <div class="relative py-8 px-2 group" style="perspective: 800px">
+                <div class="relative">
+                    <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
+                    <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
+                    <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
+                    <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
+                    <p class="text-base font-light tracking-tight text-center">
+                        5376 Shelburne Rd, Shelburne, <br> VT 05482, United States
+                    </p>
+                </div>
             </div>
-        </div>
-        <!-- Flip Card -->
-        <div class="relative py-8 px-2 group" style="perspective: 800px">
-            <div class="relative">
-                <span class="absolute top-0 left-0 w-3 h-3 border-t border-l border-white"></span>
-                <span class="absolute top-0 right-0 w-3 h-3 border-t border-r border-white"></span>
-                <span class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white"></span>
-                <span class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white"></span>
-                <p class="text-base font-light tracking-tight text-center">
-                    5376 Shelburne Rd, Shelburne, <br> VT 05482, United States
-                </p>
-            </div>
-        </div>
         </div>
 
         {{-- Desktop --}}
