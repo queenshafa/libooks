@@ -4,26 +4,35 @@
     <!-- Header -->
     <section
         class="relative w-full px-8 pt-48 pb-24 text-gray-700 bg-[radial-gradient(circle_at_50%_100%,rgba(253,224,71,0.4)_0%,transparent_60%),radial-gradient(circle_at_50%_100%,rgba(251,191,36,0.4)_0%,transparent_70%),radial-gradient(circle_at_50%_100%,rgba(244,114,182,0.5)_0%,transparent_80%)]">
-        <a href="{{ route('welcome') }}"
-            class="text-sm tracking-widest uppercase opacity-40 mb-4 hover:bg-slate-600 hover:text-white"><i
-                class="ri-arrow-left-line"></i> Back</a>
-        <h1 class="text-5xl font-medium tracking-tight max-w-2xl leading-tight">
-            <span class="opacity-40">From our shelf, to your mind,</span> <br />
-            A complete archive for the modern learner.
-        </h1>
-        <p class="mt-6 tracking-tight max-w-md leading-relaxed">
-            We believe the best ideas start with the right resources. That’s why
-            we’ve curated a vast selection of textbooks and non-fiction, making them
-            available to you instantly—no barriers, just pure learning to help you
-            reach your full potential.
-        </p>
+        <div class="flex flex-col-reverse lg:flex lg:flex-row lg:justify-between">
+            <div>
+                <a href="{{ route('welcome') }}"
+                    class="hidden lg:flex text-sm tracking-widest uppercase opacity-40 mb-4 hover:bg-slate-600 hover:text-white transition"><i
+                        class="ri-arrow-left-line"></i> Back</a>
+                <p class="mt-6 tracking-tight max-w-md leading-relaxed">
+                    We believe the best ideas start with the right resources. That’s why
+                    we’ve curated a vast selection of textbooks and non-fiction, making them
+                    available to you instantly—no barriers, just pure learning to help you
+                    reach your full potential.
+                </p>
+            </div>
+            <div>
+                <a href="{{ route('welcome') }}"
+                    class="lg:hidden flex text-sm tracking-widest uppercase opacity-40 mb-4 hover:bg-slate-600 hover:text-white transition"><i
+                        class="ri-arrow-left-line"></i> Back</a>
+                <h1 class="text-5xl font-medium tracking-tight max-w-2xl leading-tight">
+                    <span class="opacity-40">From our shelf, to your mind,</span> <br />
+                    A complete archive for the modern learner.
+                </h1>
+            </div>
+        </div>
     </section>
 
     <!-- Content -->
     <section class="relative px-8 py-16 bg-white">
         <h2 class="text-2xl font-medium tracking-tight">Collections</h2>
 
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 mt-5">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-4 mt-5">
             @forelse ($books as $book)
                 <!-- Card -->
                 <div
