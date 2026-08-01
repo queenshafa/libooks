@@ -191,44 +191,46 @@
 
     <!-- Loan Form & Book Details -->
     <section class="bg-white px-4 py-16" id="loanForm">
-        <div class="max-w-full mx-auto flex flex-col lg:flex-row max-md:items-center justify-center gap-12 md:gap-x-16 ">
-            <div class="min-w-3xl bg-primary rounded-[3rem] text-white flex flex-col justify-center p-12 lg:p-14">
-                <h2 class="text-4xl lg:text-3xl font-semibold text-center mb-10">
+        <div
+            class="max-w-full mx-auto flex flex-col lg:flex-row max-md:items-center justify-center gap-4 lg:gap-12 md:gap-x-16 ">
+            <div
+                class="lg:min-w-3xl min-w-full bg-primary rounded-[3rem] text-white flex flex-col justify-center p-12 lg:p-14">
+                <h2 class="text-3xl font-semibold text-center mb-10">
                     Book Details
                 </h2>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-16 lg:gap-y-24 gap-x-20 max-w-5xl mx-auto w-full">
                     <div class="flex flex-col gap-2">
-                        <h3 class="font-bold text-xl lg:text-base opacity-70 uppercase tracking-widest">
+                        <h3 class="font-bold text-lg lg:text-base opacity-70 uppercase tracking-widest">
                             Author
                         </h3>
-                        <p class="font-medium text-3xl lg:text-2xl">{{ $book->author }}</p>
+                        <p class="font-medium text-xl lg:text-2xl">{{ $book->author }}</p>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <h3 class="font-bold text-xl lg:text-base opacity-70 uppercase tracking-widest">
+                        <h3 class="font-bold text-lg lg:text-base opacity-70 uppercase tracking-widest">
                             Publisher
                         </h3>
-                        <p class="font-medium text-3xl lg:text-2xl">
+                        <p class="font-medium text-xl lg:text-2xl">
                             {{ $book->publisher }}
                         </p>
                     </div>
 
                     <div class="flex flex-col gap-2">
-                        <h3 class="font-bold text-xl lg:text-base opacity-70 uppercase tracking-widest">
+                        <h3 class="font-bold text-lg lg:text-base opacity-70 uppercase tracking-widest">
                             Publishing Year
                         </h3>
-                        <p class="font-medium text-3xl lg:text-2xl">{{ $book->year }}</p>
+                        <p class="font-medium text-xl lg:text-2xl">{{ $book->year }}</p>
                     </div>
 
                     <div class="flex flex-col gap-2">
-                        <h3 class="font-bold text-xl lg:text-base opacity-70 uppercase tracking-widest">
+                        <h3 class="font-bold text-lg lg:text-base opacity-70 uppercase tracking-widest">
                             Categories
                         </h3>
-                        <p class="font-medium text-3xl lg:text-2xl">{{ $book->category->name }}</p>
+                        <p class="font-medium text-xl lg:text-2xl">{{ $book->category->name }}</p>
                     </div>
                 </div>
             </div>
-            <div class="flex gap-x-10">
+            <div class="flex flex-col-reverse justify-center items-center gap-y-10 lg:flex-row lg:gap-x-10">
 
                 <div class="w-full max-w-sm border border-zinc-300 rounded-2xl p-8">
                     @if ($book->stock > 0)
