@@ -21,7 +21,8 @@ class FrontController extends Controller
 
     public function detail($id) {
         $book = Book::findOrFail($id);
-        return view('front.detail', compact('book'));
+        $books = Book::with('category')->latest()->get();
+        return view('front.detail', compact('book', 'books'));
     }
 
     public function borrow($id, Request $request) {
