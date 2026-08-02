@@ -190,7 +190,7 @@
     </section>
 
     <!-- Loan Form & Book Details -->
-    <section class="bg-white px-4 py-16" id="loanForm">
+    <section class="bg-white px-8 py-16" id="loanForm">
         <div
             class="max-w-full mx-auto flex flex-col lg:flex-row max-md:items-center justify-center gap-4 lg:gap-12 md:gap-x-16 ">
             <div
