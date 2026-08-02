@@ -15,31 +15,14 @@
 </head>
 
 <body class="h-screen p-5 font-[Poppins] min-h-screen flex items-center justify-center overflow-y-auto">
-    <div
-        class="group w-1/2 hover:w-[55%] transition-all duration-500 h-full relative rounded-[30px] overflow-hidden animate-left hidden lg:block">
-        <div class="absolute inset-0">
-            <img src="{{ asset('/assets/sign-in-bg.png') }}" alt="Login Background" class="h-full w-full">
-        </div>
-        <div class="relative h-full flex flex-col justify-between p-6 text-white">
-            <div class="text-6xl font-light">
-                <img src="{{ asset('/assets/vellum-logo.svg') }}" alt="Vellum Logo" class="h-20 object-contain">
-            </div>
-            <div>
-                <h1 class="text-4xl font-black leading-tight mb-2">Welcome back!</h1>
-                <p class="text-lg tracking-tight font-light">Create an account to get started <br> and explore more,</p>
-            </div>
-
-        </div>
-    </div>
 
     <div
         class="w-full lg:w-1/2 lg:hover:w-[55%] transition-all duration-500 flex items-center justify-center px-6 lg:px-16 animate-right">
 
         <div class="w-full max-w-lg">
             <div class="text-center mb-10">
-                <h2 class="text-4xl font-bold text-[#333] mb-3">Glad to see you again!</h2>
-                <p class="text-gray-400 text-lg">Create an account to get started
-                    and explore more.</p>
+                <h2 class="text-4xl font-bold text-[#333] mb-3">Welcome, Admin.</h2>
+                <p class="text-gray-400 text-lg">Manage Libooks books data</p>
             </div>
 
             <form class="w-full max-w-lg" action="{{ route('register') }}" method="POST">
@@ -78,8 +61,8 @@
                     </button>
                 </a>
 
-                <p class="text-gray-400 text-center mt-4">Don't have an account? <a href="{{ route('register') }}"
-                        class="text-primary font-medium">Register</a></p>
+                {{-- <p class="text-gray-400 text-center mt-4">Don't have an account? <a href="{{ route('register') }}"
+                        class="text-primary font-medium">Register</a></p> --}}
             </form>
         </div>
     </div>

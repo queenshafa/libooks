@@ -8,7 +8,8 @@
         <div class="flex items-center justify-between animate-fade-up">
             <div>
                 <h1 class="text-2xl font-extrabold text-gray-900" style="font-family:'Sora',sans-serif">Dashboard 👋</h1>
-                <p class="text-sm text-gray-500 mt-0.5">Halo, <span class="font-semibold text-gray-700">Wida</span>! Berikut
+                <p class="text-sm text-gray-500 mt-0.5">Halo, <span
+                        class="font-semibold text-gray-700">{{ Str::before(auth()->user()->name, ' ') }}</span>! Berikut
                     ringkasan E-Library hari ini.</p>
             </div>
         </div>
@@ -38,7 +39,7 @@
                 </div>
                 <div class="text-3xl font-extrabold text-gray-900 leading-none mb-1" style="font-family:'Sora',sans-serif">
                     {{ $totalPeminjam }}</div>
-                <div class="text-sm text-gray-500 font-medium">Total Anggota</div>
+                <div class="text-sm text-gray-500 font-medium">Total Permintaan</div>
             </div>
 
 
