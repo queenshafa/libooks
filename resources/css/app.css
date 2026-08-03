@@ -6,22 +6,16 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
-/* =========================
-  THEME
-========================= */
 @theme {
-    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-
-    --font-display: "Sora", sans-serif;
-    --font-body: "DM Sans", sans-serif;
+    --font-instrument-serif: "Instrument Serif", serif;
+    --font-helvetica: Helvetica, Arial, "HelveticaNeue", "Helvetica Neue Light",
+        "HelveticaNeue-Light", "Lucida Grande", sans-serif;
+    --color-primary: #ce512b;
+    --color-secondary: #f2f0e5;
+    --color-gray: #3c3634;
 }
 
-/* =========================
-  BASE
-========================= */
-@layer base {
+/* @layer base {
     *,
     ::after,
     ::before,
@@ -34,7 +28,6 @@
         font-family: var(--font-body);
     }
 
-    /* animations (WAJIB di base) */
     @keyframes gradientShift {
         0% {
             background-position: 0% 50%;
@@ -80,18 +73,13 @@
             transform: translateY(-4px);
         }
     }
-}
+} */
 
-/* =========================
-  UTILITIES
-========================= */
-@layer utilities {
-    /* font */
+/* @layer utilities {
     .font-display {
         font-family: var(--font-display);
     }
 
-    /* animated gradient */
     .bg-animated {
         @apply bg-[length:400%_400%];
         background-image: linear-gradient(
@@ -105,7 +93,6 @@
         animation: gradientShift 10s ease infinite;
     }
 
-    /* blobs */
     .blob {
         @apply absolute rounded-full opacity-30 blur-[90px];
         animation: blobFloat 9s ease-in-out infinite;
@@ -126,17 +113,14 @@
         animation-delay: 2s;
     }
 
-    /* card */
     .card-enter {
         animation: cardEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
-    /* input focus */
     .input-field:focus {
         @apply outline-none ring-4 ring-[#DB4437]/20;
     }
 
-    /* button gradient */
     .btn-gradient {
         @apply relative overflow-hidden transition-all duration-300;
         background: linear-gradient(135deg, #db4437, #f4b400);
@@ -160,7 +144,6 @@
         @apply relative z-10;
     }
 
-    /* divider */
     .divider {
         @apply flex items-center gap-3;
     }
@@ -171,12 +154,10 @@
         @apply flex-1 h-px bg-gray-200;
     }
 
-    /* logo */
     .logo-icon {
         animation: logoBounce 2s ease-in-out infinite;
     }
 
-    /* badge */
     .badge-blue {
         @apply bg-blue-50 text-blue-700;
     }
@@ -190,12 +171,10 @@
         @apply bg-red-50 text-red-800;
     }
 
-    /* strength bar */
     .strength-bar {
         @apply h-[3px] rounded-full bg-gray-200 transition-all duration-300;
     }
 
-    /* step */
     .step-dot {
         @apply w-2 h-2 rounded-full bg-gray-200 transition-all duration-300;
     }
@@ -211,4 +190,4 @@
     .form-input {
         @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all;
     }
-}
+} */

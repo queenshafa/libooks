@@ -1,4 +1,4 @@
-<div class="sticky top-0 z-30 px-7 py-3.5 flex items-center gap-4 border-b border-gray-200/80"
+{{-- <div class="sticky top-0 z-30 px-7 py-3.5 flex items-center gap-4 border-b border-gray-200/80"
     style="background:rgba(240,242,248,0.85);backdrop-filter:blur(16px)">
     <!-- Hamburger (mobile) -->
     <button onclick="toggleSidebar()" id="hamburger"
@@ -21,7 +21,6 @@
     </div>
 
     <div class="flex items-center gap-2 ml-auto">
-        {{-- notif --}}
         <button
             class="relative w-9 h-9 flex items-center justify-center rounded-xl border border-transparent hover:bg-white hover:border-gray-200 text-gray-500 transition-all">
             <i class="ri-notification-2-line"></i>
@@ -36,4 +35,21 @@
             {{ \Carbon\Carbon::now()->translatedFormat('j F Y') }}
         </div>
     </div>
-</div>
+</div> --}}
+
+<header class="flex items-center justify-between gap-6 pr-4 py-5 bg-white">
+    <div class="relative flex-1">
+        <span class="absolute inset-y-0 left-4 flex items-center text-gray-400">
+            <i class="ri-search-line text-lg"></i>
+        </span>
+        <input type="text" placeholder="Search Here"
+            class="w-full py-3.5 pl-12 pr-6 bg-gray-50 text-sm text-gray-600 rounded-full border">
+    </div>
+
+    <div class="shrink-0 bg-primary rounded-full py-2.5 px-5 shadow-sm shadow-[#7B5DFE]/10">
+        <p class="text-xs text-white font-semibold flex items-center gap-2 tracking-wide">
+            <i class="ri-calendar-line text-white text-sm"></i>
+            {{ now()->format('l, d M Y') }}
+        </p>
+    </div>
+</header>
