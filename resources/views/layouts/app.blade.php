@@ -16,7 +16,7 @@
 
 <body class="bg-white">
 
-    <div class="flex h-screen min-w-0">
+    <div class="flex min-h-screen min-w-0">
         @include('custom-components.sidebar')
 
         <div class="flex-1 flex flex-col">

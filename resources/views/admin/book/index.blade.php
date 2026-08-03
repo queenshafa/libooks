@@ -1,46 +1,43 @@
-@extends('base')
+@extends('layouts.app')
+
+@section('title', 'Manage Books | Libooks')
+
+@section('banner-title')
+    Manage Books
+@endsection
+
+@section('banner-subtitle', 'Manage books available or add new one.')
+
+@section('banner-actions')
+    <div class="flex gap-2 flex-wrap">
+        <a href="{{ route('admin.book.create') }}">
+            <button
+                class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-sm font-semibold text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg transition-all">
+                <i class="ri-add-line"></i>Tambah Buku
+            </button>
+        </a>
+    </div>
+@endsection
 
 @section('content')
-    <div class="p-6 max-w-7xl mx-auto flex flex-col gap-5">
-
-
-        {{-- ── Heading ── --}}
-        <div class="flex items-center justify-between flex-wrap gap-3 animate-fade-up">
-            <div>
-                <h1 class="text-[22px] font-extrabold text-gray-900 leading-tight" style="font-family:'Sora',sans-serif">
-                    Kelola Buku
-                </h1>
-            </div>
-            <div class="flex gap-2 flex-wrap">
-                <a href="{{ route('admin.book.create') }}">
-                    <button
-                        class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-400 text-sm font-semibold text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg transition-all">
-                        <i class="ri-add-line"></i>Tambah Buku
-                    </button>
-                </a>
-            </div>
-        </div>
+    <div class="px-6 py-10 flex flex-col gap-5">
 
         {{-- Alert Session --}}
         @if (session('success'))
-            <div class="flex items-center px-4 py-4 bg-green-50 border-green-100 text-green-700 text-sm font-medium">
+            <div
+                class="flex items-center px-4 py-4 bg-green-50 border-green-100 text-green-700 rounded-2xl text-sm font-medium">
                 {{ session('success') }}
             </div>
         @endif
 
-        {{-- ── Table card ── --}}
+        {{-- ── Table ── --}}
         <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden animate-fade-up delay-2">
-
-
-            {{-- Table header --}}
             <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">
                     Daftar Buku
                 </div>
             </div>
 
-
-            {{-- Table --}}
             <div class="overflow-x-auto">
                 <table class="w-full border-collapse" id="categoryTable">
                     <thead>
@@ -63,7 +60,6 @@
                                 Aksi</th>
                         </tr>
                     </thead>
-
 
                     <tbody id="tableBody">
                         @forelse ($books as $item)

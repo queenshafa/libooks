@@ -1,31 +1,26 @@
-@extends('base')
+@extends('layouts.app')
+
+@section('title', 'Add Book | Libook')
+
+@section('banner-title')
+    Add New Book
+@endsection
+
+@section('banner-subtitle', 'Fill in the book information completely and correctly.')
+
+@section('banner-actions')
+    <a href="{{ route('admin.book.index') }}"
+        class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-600 border border-gray-200 bg-white hover:bg-gray-50 transition-all">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Kembali
+    </a>
+@endsection
 
 @section('content')
-    <!-- ════════════ MAIN CONTENT ════════════ -->
-    <!-- Page content -->
-    <div class="p-6 max-w-5xl mx-auto">
-
-
-        <!-- Heading -->
-        <div class="flex items-center justify-between flex-wrap gap-3 mb-6 animate-fade-up">
-            <div>
-                <h1 class="text-[22px] font-extrabold text-gray-900 leading-tight" style="font-family:'Sora',sans-serif">
-                    Tambah Buku Baru 📚</h1>
-                <p class="text-[13px] text-gray-500 mt-0.5">Isi informasi buku dengan lengkap dan benar</p>
-            </div>
-            <a href="{{ route('admin.book.index') }}"
-                class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold text-gray-600 border border-gray-200 bg-white hover:bg-gray-50 transition-all">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Kembali
-            </a>
-        </div>
-
-
-        <!-- Form grid: left (main form) + right (preview + extra) -->
+    <div class="p-6">
         <div>
-            <!-- ── LEFT: Main form ── -->
             <div class="lg:col-span-2 flex flex-col gap-5">
                 <form action="{{ route('admin.book.upload') }}" method="POST" enctype="multipart/form-data"
                     class="p-6 flex flex-col gap-5">
@@ -112,7 +107,7 @@
                     </div>
                     <div>
                         <button type="submit"
-                            class="bg-blue-400 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                            class="bg-primary inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
                             Simpan Buku
                         </button>
                     </div>
