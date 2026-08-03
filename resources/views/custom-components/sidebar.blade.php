@@ -97,6 +97,14 @@
                 {{ request()->routeIs('categories')
                     ? 'bg-primary text-white shadow-sm'
                     : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
+                <i class="ri-pushpin-line"></i>Categories
+            </a>
+
+            <a href="{{ route('admin.borrowings') }}"
+                class="flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all
+                {{ request()->routeIs('admin.borrowings')
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
                 <i class="ri-pushpin-line"></i>Loans
             </a>
         </nav>

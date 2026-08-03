@@ -25,8 +25,15 @@
                 <p class="text-gray-400 text-lg">Manage Libooks books data</p>
             </div>
 
-            <form class="w-full max-w-lg" action="{{ route('register') }}" method="POST">
+            <form class="w-full max-w-lg" action="{{ route('login') }}" method="POST">
                 @csrf
+
+                @if ($errors->any())
+                    <div class="mb-4 p-4 text-sm text-red-700 bg-red-100 rounded-xl" role="alert">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+
                 <div class="mb-5">
                     <label class="block mb-2">Email</label>
                     <input type="email" id="email" name="email" placeholder="email@gmail.com" required
