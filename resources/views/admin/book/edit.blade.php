@@ -19,12 +19,8 @@
 @endsection
 
 @section('content')
-    <!-- ════════════ MAIN CONTENT ════════════ -->
-    <!-- Page content -->
     <div class="p-6">
-        <!-- Form grid: left (main form) + right (preview + extra) -->
         <div>
-            <!-- ── LEFT: Main form ── -->
             <div class="lg:col-span-2 flex flex-col gap-5">
                 <form action="{{ route('admin.book.update', $book->id) }}" method="POST" enctype="multipart/form-data"
                     class="p-6 flex flex-col gap-5">
@@ -115,7 +111,7 @@
                     </div>
                     <div>
                         <button type="submit"
-                            class="bg-blue-400 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                            class="bg-primary inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
                             Simpan Buku
                         </button>
                     </div>

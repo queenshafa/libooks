@@ -81,7 +81,7 @@
                                     <span class="text-sm font-semibold text-gray-800">{{ $item->author }}</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-sm font-semibold text-gray-800">{{ $item->stock }}</span>
+                                    <p class="text-sm text-center font-semibold text-gray-800">{{ $item->stock }}</p>
                                 </td>
                                 {{-- Aksi --}}
                                 <td class="px-6 py-4">
