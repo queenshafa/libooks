@@ -1,78 +1,22 @@
-{{-- Sidebar
-<aside id="sidebar"
-    class="w-64 h-screen fixed top-0 left-0 bg-white border-r border-gray-100 flex flex-col z-40 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
-    <!-- Logo -->
-    <div class="flex items-center gap-2.5 px-5 py-6 border-b border-gray-100">
-        <div class="w-9.5 h-9.5 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md"
-            style="background:linear-gradient(135deg,#4285F4,#0F9D58)">
-            <i class="ri-book-ai-line text-white text-2xl"></i>
-        </div>
-        <div>
-            <div class="font-display font-bold text-sm text-gray-900 leading-tight" style="font-family:'Sora',sans-serif">
-                E-Library</div>
-            <div class="text-[11px] text-gray-400 font-medium">Admin Panel</div>
-        </div>
-    </div>
-
-
-    <!-- Nav -->
-    <div class="flex-1 overflow-y-auto">
-        <div class="px-3 pt-4 pb-2">
-            <p class="text-[10px] font-semibold tracking-widest uppercase text-gray-400 px-2 mb-1">Menu Utama</p>
-
-            <a href=""
-                class="sidebar-active relative flex items-center gap-2.5 px-3 py-2.5 rounded-xl mb-0.5 text-sm font-semibold text-blue-500 cursor-pointer"
-                style="background:linear-gradient(135deg,#EFF6FF,#F0FDF4)">
-                <i class="ri-home-2-line"></i>Dashboard
-            </a>
-
-            <a href="{{ route('admin.book.index') }}"
-                class="relative flex items-center gap-2.5 px-3 py-2.5 rounded-xl mb-0.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all">
-                <i class="ri-book-open-line"></i>Kelola Buku
-            </a>
-
-            <a href="{{ route('categories') }}"
-                class="relative flex items-center gap-2.5 px-3 py-2.5 rounded-xl mb-0.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all">
-                <i class="ri-price-tag-3-line"></i>Kategori
-            </a>
-
-            <a href="{{ route('admin.borrowings') }}"
-                class="relative flex items-center gap-2.5 px-3 py-2.5 rounded-xl mb-0.5 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all">
-                <i class="ri-todo-line"></i>Peminjaman
-            </a>
-        </div>
-    </div>
-
-
-    <!-- User footer -->
-    <div class="p-3 border-t border-gray-100">
-        <div
-            class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gray-50 hover:bg-blue-50 cursor-pointer transition-all">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                style="background:linear-gradient(135deg,#DB4437,#F4B400);font-family:'Sora',sans-serif">W</div>
-            <div class="flex-1 min-w-0">
-                <div class="text-sm font-semibold text-gray-800 truncate">Eula</div>
-                <div class="text-[11px] text-gray-400 truncate">eulawrence@gmail.com</div>
-            </div>
-
-            {{-- logout --}}
-{{-- <form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <a :href="route('logout')" onclick="event.preventDefault();
-                        this.closest('form').submit();"
-        class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-50 hover:text-red-500 transition-all">
-        <i class="ri-logout-box-r-line text-2xl"></i>
-    </a>
-</form>
+<div class="md:hidden fixed top-4 left-4 z-40">
+    <button id="toggleSidebar" type="button" class="p-2.5 rounded-xl text-primary">
+        <i class="ri-menu-line text-2xl"></i>
+    </button>
 </div>
-</div>
-</aside> --}}
 
-<aside id="sideBar" class="hidden w-64 bg-white rounded-4xl md:flex flex-col justify-between p-6 text-primary shrink-0">
+<div id="sidebarOverlay"
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden transition-opacity duration-300 md:hidden"></div>
+<aside id="sideBar"
+    class="fixed inset-y-0 left-0 z-50 -translate-x-full md:translate-x-0 md:static w-64 bg-white rounded-r-4xl md:rounded-4xl flex flex-col justify-between p-6 text-primary shrink-0 transition-transform duration-300 ease-in-out shadow-2xl md:shadow-none">
     <div>
-        <div class="flex items-center justify-center gap-2 px-3 py-4 mb-8">
-            {{-- <img src="{{ asset('assets/vellum-logo.png') }}" alt="Vellum logo" class="h-10 bg-primary p-1 rounded-lg"> --}}
-            <span class="font-bold text-xl uppercase tracking-wide">Libooks.</span>
+        <div class="flex items-center justify-between md:justify-center px-3 py-4 mb-8">
+            <div class="flex items-center gap-2">
+                <img src="{{ asset('assets/logo-libooks.png') }}" alt="Libooks logo" class="h-10 p-1 rounded-lg">
+                <span class="font-bold text-xl uppercase tracking-wide">Libooks</span>
+            </div>
+            <button id="closeSidebar" class="md:hidden text-gray-400 hover:text-gray-600 focus:outline-none">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
         </div>
 
         <nav class="space-y-2">
@@ -80,7 +24,7 @@
                 class="flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all
                 {{ request()->routeIs('dashboard')
                     ? 'bg-primary text-white shadow-sm'
-                    : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
+                    : 'text-gray-500 hover:bg-primary/20 hover:text-primary' }}">
                 <i class="ri-dashboard-line"></i>Dashboard
             </a>
 
@@ -88,7 +32,7 @@
                 class="flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all
                 {{ request()->routeIs('admin.book.*')
                     ? 'bg-primary text-white shadow-sm'
-                    : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
+                    : 'text-gray-500 hover:bg-primary/20 hover:text-primary' }}">
                 <i class="ri-menu-search-line"></i>Manage Books
             </a>
 
@@ -96,39 +40,33 @@
                 class="flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all
                 {{ request()->routeIs('categories')
                     ? 'bg-primary text-white shadow-sm'
-                    : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
-                <i class="ri-pushpin-line"></i>Categories
+                    : 'text-gray-500 hover:bg-primary/20 hover:text-primary' }}">
+                <i class="ri-list-check"></i>Categories
             </a>
 
             <a href="{{ route('admin.borrowings') }}"
                 class="flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all
                 {{ request()->routeIs('admin.borrowings')
                     ? 'bg-primary text-white shadow-sm'
-                    : 'text-gray-500 hover:bg-[#F5F6FA] hover:text-[#7B5DFE]' }}">
-                <i class="ri-pushpin-line"></i>Loans
+                    : 'text-gray-500 hover:bg-primary/20 hover:text-primary' }}">
+                <i class="ri-user-line"></i>Loans
             </a>
         </nav>
     </div>
 
     <div class="relative border-t border-gray-100 px-4 py-5 rounded-lg overflow-hidden bg-primary"
         style="min-height: 180px;">
-        {{-- <img src="{{ asset('assets/sign-in-bg.png') }}" alt="Login Background"
-            class="absolute inset-0 w-full h-full object-cover"> --}}
         <div class="relative z-10 flex flex-col gap-3">
             <div
                 class="w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-white text-xs font-semibold">
-                {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                A
             </div>
             <div>
                 <p class="text-white font-extrabold text-base leading-tight">
-                    {{ Str::before(auth()->user()->name, ' ') }}
+                    Admin
                 </p>
                 <p class="text-white/60 text-xs mt-0.5">
-                    @if (Str::contains(auth()->user()->name, ' '))
-                        {{ Str::afterLast(auth()->user()->name, ' ') }}
-                    @else
-                        No Last Name
-                    @endif
+                    Libooks Admin
                 </p>
             </div>
 
@@ -145,3 +83,27 @@
         </div>
     </div>
 </aside>
+
+{{-- Mobile Script --}}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const closeBtn = document.getElementById('closeSidebar');
+        const sideBar = document.getElementById('sideBar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sideBar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sideBar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+    });
+</script>
