@@ -13,7 +13,7 @@
         {{-- Stats --}}
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 animate-fade-up delay-2">
             <div class="bg-white rounded-2xl border border-gray-100 p-3.5 sm:p-4 flex items-center gap-3 shadow-sm">
-                <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
                     <i class="ri-book-open-line text-lg"></i>
                 </div>
                 <div class="min-w-0">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="bg-white rounded-2xl border border-gray-100 p-3.5 sm:p-4 flex items-center gap-3 shadow-sm">
-                <div class="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center text-yellow-500 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
                     <i class="ri-time-line text-lg"></i>
                 </div>
                 <div class="min-w-0">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="bg-white rounded-2xl border border-gray-100 p-3.5 sm:p-4 flex items-center gap-3 shadow-sm">
-                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
                     <i class="ri-book-2-line text-lg"></i>
                 </div>
                 <div class="min-w-0">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="bg-white rounded-2xl border border-gray-100 p-3.5 sm:p-4 flex items-center gap-3 shadow-sm">
-                <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-500 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
                     <i class="ri-checkbox-circle-line text-lg"></i>
                 </div>
                 <div class="min-w-0">
