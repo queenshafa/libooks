@@ -47,7 +47,7 @@
                         style="font-family:'Sora',sans-serif">
                         {{ $totalDipinjam }}
                     </div>
-                    <div class="text-[11px] sm:text-xs text-gray-400">Dipinjam</div>
+                    <div class="text-[11px] sm:text-xs text-gray-400">Borrowed</div>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                         style="font-family:'Sora',sans-serif">
                         {{ $totalDikembalikan }}
                     </div>
-                    <div class="text-[11px] sm:text-xs text-gray-400">Dikembalikan</div>
+                    <div class="text-[11px] sm:text-xs text-gray-400">Returned</div>
                 </div>
             </div>
         </div>
@@ -78,15 +78,15 @@
             <div
                 class="px-5 sm:px-6 py-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">
-                    Daftar Peminjaman
+                    List of Loans
                 </div>
                 {{-- Search Form --}}
                 <form method="GET" action="{{ route('admin.borrowings') }}" class="flex gap-2 w-full sm:w-auto">
-                    <input type="text" name="code" value="{{ request('code') }}" placeholder="Cari kode peminjaman..."
+                    <input type="text" name="code" value="{{ request('code') }}" placeholder="Find loan code..."
                         class="px-4 py-2 text-sm rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-blue-400 outline-none transition-all placeholder:text-gray-300 w-full sm:w-56">
                     <button type="submit"
                         class="px-4 py-2 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-blue-600 transition-all shrink-0">
-                        Cari
+                        Search
                     </button>
                 </form>
             </div>
@@ -154,7 +154,7 @@
                 @empty
                     <div class="px-6 py-10 text-center text-sm text-gray-400">
                         <i class="ri-book-open-line text-3xl block mb-2 text-gray-300"></i>
-                        Belum ada data peminjaman.
+                        There is no loan data yet.
                     </div>
                 @endforelse
             </div>
@@ -168,21 +168,21 @@
                                 #
                             </th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Kode
+                                Code
                             </th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Peminjam
+                                Borrower
                             </th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Buku
+                                Book
                             </th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Tgl Pinjam
+                                Date of Loan
                             </th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Tgl Kembali
+                                Return Date
                             </th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
@@ -190,7 +190,7 @@
                             </th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Aksi
+                                Action
                             </th>
                         </tr>
                     </thead>
@@ -217,7 +217,7 @@
                                         title="{{ $borrowing->book->title ?? '-' }}">
                                         {{ $borrowing->book->title ?? '-' }}
                                     </div>
-                                    <div class="text-xs text-gray-400 mt-0.5">{{ $borrowing->duration }} hari</div>
+                                    <div class="text-xs text-gray-400 mt-0.5">{{ $borrowing->duration }} days</div>
                                 </td>
 
                                 <td class="px-6 py-4 text-center text-xs text-gray-600">
@@ -261,7 +261,7 @@
                             <tr>
                                 <td colspan="8" class="px-6 py-12 text-center text-sm text-gray-400">
                                     <i class="ri-book-open-line text-3xl block mb-2 text-gray-300"></i>
-                                    Belum ada data peminjaman.
+                                    There is no loan data yet.
                                 </td>
                             </tr>
                         @endforelse
@@ -275,8 +275,8 @@
         class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-black/40 backdrop-blur-sm transition-opacity">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-fade-up">
             <div class="px-6 pt-6 pb-4">
-                <h3 class="text-base font-bold text-gray-900 mb-1">Update Status Peminjaman</h3>
-                <p class="text-xs text-gray-500">Pilih status terbaru untuk transaksi ini.</p>
+                <h3 class="text-base font-bold text-gray-900 mb-1">Update Loan Status</h3>
+                <p class="text-xs text-gray-500">Select the latest status for this transaction.</p>
             </div>
 
             <form id="modalForm" method="POST" class="px-6 pb-6">
@@ -285,18 +285,18 @@
                 <select name="status" id="modalSelect"
                     class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 mb-5 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all">
                     <option value="pending">Pending</option>
-                    <option value="dipinjam">Dipinjam</option>
-                    <option value="dikembalikan">Dikembalikan</option>
+                    <option value="dipinjam">Borrowed</option>
+                    <option value="dikembalikan">Returned</option>
                 </select>
 
                 <div class="flex gap-2">
                     <button type="button" onclick="closeModal()"
                         class="flex-1 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-all">
-                        Batal
+                        Cancel
                     </button>
                     <button type="submit"
                         class="flex-1 py-2.5 rounded-xl bg-primary hover:bg-blue-600 text-white text-sm font-semibold transition-all shadow-sm">
-                        Simpan
+                        Save
                     </button>
                 </div>
             </form>

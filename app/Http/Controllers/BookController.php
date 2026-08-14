@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Models\Borrowing;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -47,7 +48,12 @@ class BookController extends Controller
 
     public function detail($id) {
         $book = Book::with('category')->findOrFail($id);
-        return view('admin.book.detail', compact('book'));
+
+        $currentBorrowed = Borrowing::where('book_id', $book->id)
+            ->where('status', 'borrowed')
+            ->count();
+
+        return view('admin.book.detail', compact('book', 'currentBorrowed'));
     }
 
     public function edit($id) {

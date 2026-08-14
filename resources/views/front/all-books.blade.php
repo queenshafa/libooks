@@ -37,11 +37,9 @@
                 <!-- Card -->
                 <div
                     class="h-90 flex flex-col justify-between bg-secondary text-primary rounded-tl-2xl rounded-br-2xl group relative overflow-hidden">
-                    <img src="/assets/all-books-img.jpg" alt=""
-                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div class="relative z-10 flex flex-col py-8 px-8 items-center justify-center mt-8">
                         <img src="{{ asset('storage/' . $book->cover) }}" alt="The Let Them Theory"
-                            class="w-20 shadow-2xl group-hover:invisible transition-opacity duration-300" />
+                            class="w-20 shadow-2xl" />
                         <p class="mt-8 font-light tracking-tight transition-colors duration-300">
                             {{ $book->category->name }}
                         </p>
@@ -50,7 +48,11 @@
                         </h3>
                     </div>
                     <div
-                        class="relative z-10 bottom-0 flex justify-center visible lg:invisible group-hover:visible gap-x-4 bg-primary text-white w-full py-2 font-light">
+                        class="relative z-10 bottom-0 flex justify-center gap-x-4 bg-primary text-white w-full py-2 font-light
+                            opacity-100 translate-y-0 pointer-events-auto
+                            lg:opacity-0 lg:translate-y-2 lg:pointer-events-none
+                            lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:pointer-events-auto
+                            transition-all duration-300 ease-in-out">
                         <a href="{{ route('front.detail', $book->id) }}">View Book</a>
                     </div>
                 </div>

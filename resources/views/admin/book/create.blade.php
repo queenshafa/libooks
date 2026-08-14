@@ -25,40 +25,40 @@
                 <form action="{{ route('admin.book.upload') }}" method="POST" enctype="multipart/form-data"
                     class="p-6 flex flex-col gap-5">
                     @csrf
-                    <!-- Judul -->
+                    <!-- Title -->
                     <div>
-                        <label class="form-label">Judul Buku</label>
+                        <label class="form-label">Book Title</label>
                         <input value="{{ old('title') }}" name="title" type="text" class="form-input"
                             placeholder="Contoh: Laravel 12 untuk Pemula">
                         @error('title')
                             <p class=" text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <!-- Pengarang + Penerbit -->
+                    <!-- Author + Publisher -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="form-label">Penulis</label>
+                            <label class="form-label">Author</label>
                             <input value="{{ old('author') }}" name="author" type="text" class="form-input"
-                                placeholder="Nama pengarang">
+                                placeholder="Author Name">
                             @error('author')
                                 <p class=" text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
-                            <label class="form-label">Penerbit</label>
+                            <label class="form-label">Publisher</label>
                             <input value="{{ old('publisher') }}" name="publisher" type="text" class="form-input"
-                                placeholder="Nama penerbit">
+                                placeholder="Publisher name">
                             @error('publisher')
                                 <p class=" text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-                    <!-- Kategori + Tahun -->
+                    <!-- Category + Year -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="form-label">Kategori</label>
+                            <label class="form-label">Category</label>
                             <select name="category_id" class="form-input">
-                                <option value="">Pilih kategori</option>
+                                <option value="">Choose category</option>
                                 @foreach ($categories as $item)
                                     <option value="{{ $item->id }}"
                                         {{ old('category_id') == $item->id ? 'selected' : '' }}>{{ $item->name }}
@@ -70,7 +70,7 @@
                             @enderror
                         </div>
                         <div>
-                            <label class="form-label">Tahun Terbit</label>
+                            <label class="form-label">Published Year</label>
                             <input value="{{ old('year') }}" name="year" type="number" class="form-input"
                                 placeholder="2024" min="1900" max="2099">
                             @error('year')
@@ -88,27 +88,27 @@
                             @enderror
                         </div>
                         <div>
-                            <label class="form-label">Stok</label>
+                            <label class="form-label">Stock</label>
                             <input value="{{ old('stock') }}" name="stock" type="number" class="form-input">
                             @error('stock')
                                 <p class=" text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-                    <!-- Deskripsi -->
+                    <!-- Description -->
                     <div>
-                        <label class="form-label">Deskripsi</label>
+                        <label class="form-label">Description</label>
                         <textarea name="description" class="form-input" rows="4"
-                            placeholder="Tulis sinopsis atau deskripsi singkat tentang isi buku...">{{ old('description') }}</textarea>
+                            placeholder="Write a synopsis or a description of the book's content..">{{ old('description') }}</textarea>
                         @error('description')
                             <p class=" text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
-                        <p class="text-[11px] text-gray-400 mt-1.5">Maksimal 500 karakter</p>
+                        <p class="text-[11px] text-gray-400 mt-1.5">Max. 500 characters</p>
                     </div>
                     <div>
                         <button type="submit"
                             class="bg-primary inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
-                            Simpan Buku
+                            Save Book
                         </button>
                     </div>
                 </form>

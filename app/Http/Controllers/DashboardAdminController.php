@@ -12,7 +12,7 @@ class DashboardAdminController extends Controller
     public function index() {
         $totalBuku      = Book::count();
         $totalPeminjam  = Borrowing::distinct('name')->count('name');
-        $sedangDipinjam = Borrowing::where('status', 'dipinjam')->count();
+        $sedangDipinjam = Borrowing::where('status', 'borrowed')->count();
 
         $labels = [];
         $data   = [];

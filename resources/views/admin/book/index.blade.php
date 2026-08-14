@@ -31,7 +31,7 @@
             </div>
         @endif
 
-        {{-- Container Utama --}}
+        {{-- Main Container --}}
         <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm animate-fade-up delay-2">
             <div class="px-5 sm:px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            {{-- 1. Tampilan MOBILE (Card View - Tampil di bawah md) --}}
+            {{-- Mobile Table --}}
             <div class="block md:hidden divide-y divide-gray-100">
                 @forelse ($books as $item)
                     <div class="p-4 flex flex-col gap-3 hover:bg-gray-50/50 transition-colors">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        {{-- Aksis Mobile --}}
+                        {{-- Mobile Actions --}}
                         <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-50">
                             <a href="{{ route('admin.book.detail', $item->id) }}"
                                 class="flex-1 py-1.5 rounded-lg flex items-center justify-center gap-1 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-200 hover:bg-blue-50 hover:text-blue-600 transition-all">
@@ -83,12 +83,12 @@
                 @empty
                     <div class="px-6 py-10 text-center text-sm text-gray-400">
                         <i class="ri-book-open-line text-3xl block mb-2 text-gray-300"></i>
-                        Belum ada data buku.
+                        No book data available.
                     </div>
                 @endforelse
             </div>
 
-            {{-- 2. Tampilan DESKTOP (Table View - Tampil di md ke atas) --}}
+            {{-- Desktop Table --}}
             <div class="hidden md:block overflow-x-auto">
                 <table class="w-full border-collapse" id="categoryTable">
                     <thead>
@@ -97,18 +97,18 @@
                                 class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3 w-10">
                                 #</th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Judul</th>
+                                Title</th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Kategori</th>
+                                Category</th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Penulis</th>
+                                Author</th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Stok</th>
+                                Stock</th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Aksi</th>
+                                Action</th>
                         </tr>
                     </thead>
 
@@ -131,7 +131,7 @@
                                 <td class="px-6 py-4">
                                     <p class="text-sm text-center font-semibold text-gray-800">{{ $item->stock }}</p>
                                 </td>
-                                {{-- Aksi Desktop --}}
+                                {{-- Desktop Actions --}}
                                 <td class="px-6 py-4">
                                     <div class="flex items-center justify-center gap-2">
                                         <a href="{{ route('admin.book.detail', $item->id) }}"
@@ -156,7 +156,7 @@
                             <tr>
                                 <td colspan="6" class="px-6 py-10 text-center text-sm text-gray-400">
                                     <i class="ri-book-open-line text-2xl block mb-2 text-gray-300"></i>
-                                    Belum ada data buku.
+                                    No book data available.
                                 </td>
                             </tr>
                         @endforelse
@@ -166,7 +166,7 @@
         </div>
     </div>
 
-    {{-- ════ MODAL HAPUS ════ --}}
+    {{-- Delete Modal --}}
     <div id="deleteModal"
         class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-fade-up">
@@ -174,20 +174,20 @@
                 <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-3">
                     <i class="ri-delete-bin-line text-2xl"></i>
                 </div>
-                <h3 class="text-base font-bold text-gray-900 mb-1">Hapus Buku Ini?</h3>
-                <p class="text-xs text-gray-500">Tindakan ini tidak dapat dibatalkan.</p>
+                <h3 class="text-base font-bold text-gray-900 mb-1">Delete this book?</h3>
+                <p class="text-xs text-gray-500">This action cannot be undone.</p>
             </div>
             <div class="px-6 pb-6 flex gap-2">
                 <button type="button" onclick="closeModal('deleteModal')"
                     class="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-all">
-                    Batal
+                    Cancel
                 </button>
                 <form id="deleteForm" method="POST" class="flex-1">
                     @csrf
                     @method('DELETE')
                     <button type="submit"
                         class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-red-500 hover:bg-red-600 transition-all flex items-center justify-center gap-1.5 shadow-sm">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </form>
             </div>
@@ -195,7 +195,7 @@
     </div>
 
     <script>
-        /* ─── Modal helpers ─── */
+        /* Modal Helper */
         function openModal(id) {
             const m = document.getElementById(id);
             m.classList.remove('hidden');
@@ -208,7 +208,7 @@
             m.classList.remove('flex');
         }
 
-        /* ─── Delete modal ─── */
+        /* Delete Modal */
         function openDeleteModal(id) {
             openModal('deleteModal');
             document.getElementById('deleteForm').action = `/book/destroy/${id}`;

@@ -36,7 +36,7 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d=" M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Kembali
+            Back
         </a>
     @endsection
 
@@ -50,18 +50,19 @@
                                 <div class="text-2xl font-extrabold text-blue-600" style="font-family:'Sora',sans-serif">
                                     {{ $book->stock }}
                                 </div>
-                                <div class="text-[11px] text-blue-400 font-medium mt-0.5">Stok Tersedia</div>
+                                <div class="text-[11px] text-blue-400 font-medium mt-0.5">Stocks Available</div>
                             </div>
                             <div class="bg-yellow-50 rounded-xl p-3 text-center">
-                                <div class="text-2xl font-extrabold text-yellow-600" style="font-family:'Sora',sans-serif">0
+                                <div class="text-2xl font-extrabold text-yellow-600" style="font-family:'Sora',sans-serif">
+                                    {{ $currentBorrowed }}
                                 </div>
-                                <div class="text-[11px] text-yellow-400 font-medium mt-0.5">Sedang Dipinjam</div>
+                                <div class="text-[11px] text-yellow-400 font-medium mt-0.5">Currently Borrowed</div>
                             </div>
                         </div>
 
-                        <!-- Deskripsi -->
+                        <!-- Description -->
                         <div>
-                            <h3 class="text-[13px] font-bold text-gray-700 uppercase tracking-wide mb-2">Deskripsi</h3>
+                            <h3 class="text-[13px] font-bold text-gray-700 uppercase tracking-wide mb-2">Description</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
                                 {{ $book->description }}
                             </p>

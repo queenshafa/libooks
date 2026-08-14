@@ -46,7 +46,7 @@
                 </li>
 
                 <li>
-                    <a href="all-books.html"
+                    <a href="{{ route('front.all-books') }}"
                         class="text-6xl font-instrument-serif opacity-50 hover:opacity-100 transition-opacity duration-300 py-2 block">Collection</a>
                 </li>
 

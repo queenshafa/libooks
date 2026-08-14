@@ -19,6 +19,7 @@
         "vite": "^8.0.0"
     },
     "dependencies": {
+        "flowbite": "^4.0.2",
         "remixicon": "^4.9.1"
     }
 }

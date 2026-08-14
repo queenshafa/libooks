@@ -5,27 +5,13 @@
     Hiya, Admin!
 @endsection
 
-@section('banner-subtitle', 'Berikut ringkasan E-Library hari ini.')
-
-{{-- @section('banner-actions')
-    <div class="flex gap-2">
-        <button id="openModal"
-            class="bg-[#7B5DFE] text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-[#6b4eeb] hover:scale-105 transition shadow-lg">
-            <i class="ri-add-line font-bold"></i> Add Category
-        </button>
-
-        <a href="#"
-            class="bg-[#7B5DFE] text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-[#6b4eeb] hover:scale-105 transition shadow-lg">
-            <i class="ri-add-line font-bold"></i> Add Note
-        </a>
-    </div>
-@endsection --}}
+@section('banner-subtitle', 'Here is today\'s E-Library summary.')
 
 @section('content')
     <div class="px-6 py-10 flex flex-col gap-6">
         <!-- Stat Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- Total Buku -->
+            <!-- Total of Books -->
             <div
                 class="stat-card stat-card-blue relative bg-white rounded-2xl p-6 border border-gray-100 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-2xl animate-fade-up delay-1">
                 <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3.5 bg-primary/20">
@@ -33,10 +19,10 @@
                 </div>
                 <div class="text-3xl font-extrabold text-gray-900 leading-none mb-1" style="font-family:'Sora',sans-serif">
                     {{ $totalBuku }}</div>
-                <div class="text-sm text-gray-500 font-medium">Total Buku</div>
+                <div class="text-sm text-gray-500 font-medium">Total of Books</div>
             </div>
 
-            <!-- Total Peminjam -->
+            <!-- Total borrowers -->
             <div
                 class="stat-card stat-card-green relative bg-white rounded-2xl p-6 border border-gray-100 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-2xl animate-fade-up delay-2">
                 <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3.5 bg-primary/20">
@@ -44,10 +30,10 @@
                 </div>
                 <div class="text-3xl font-extrabold text-gray-900 leading-none mb-1" style="font-family:'Sora',sans-serif">
                     {{ $totalPeminjam }}</div>
-                <div class="text-sm text-gray-500 font-medium">Total Permintaan</div>
+                <div class="text-sm text-gray-500 font-medium">Total Borrower</div>
             </div>
 
-            <!-- Sedang Dipinjam -->
+            <!-- Is Borrowed -->
             <div
                 class="stat-card stat-card-yellow relative bg-white rounded-2xl p-6 border border-gray-100 overflow-hidden transition-all hover:-translate-y-1 hover:shadow-2xl animate-fade-up delay-3">
                 <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-3.5 bg-primary/20">
@@ -55,7 +41,7 @@
                 </div>
                 <div class="text-3xl font-extrabold text-gray-900 leading-none mb-1" style="font-family:'Sora',sans-serif">
                     {{ $sedangDipinjam }}</div>
-                <div class="text-sm text-gray-500 font-medium">Sedang Dipinjam</div>
+                <div class="text-sm text-gray-500 font-medium">Books borrowed</div>
             </div>
         </div>
 
@@ -64,9 +50,9 @@
             <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden animate-fade-up delay-5 lg:col-span-2">
                 <div class="px-6 py-4.5 border-b border-gray-100 flex items-center justify-between">
                     <div>
-                        <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">Peminjaman
-                            per Bulan</div>
-                        <div class="text-xs text-gray-400 mt-0.5 font-medium">6 bulan terakhir</div>
+                        <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">Borrowing per
+                            Month</div>
+                        <div class="text-xs text-gray-400 mt-0.5 font-medium">Last 6 months</div>
                     </div>
                 </div>
 
@@ -112,7 +98,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: ctx => ` ${ctx.parsed.y} peminjaman`
+                                label: ctx => ` ${ctx.parsed.y} borrowings`
                             }
                         }
                     },

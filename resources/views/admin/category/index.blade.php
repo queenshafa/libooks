@@ -13,7 +13,7 @@
         <button onclick="openAddModal()"
             class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-sm font-semibold text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg transition-all">
             <i class="ri-add-line text-lg"></i>
-            Tambah Kategori
+            Add Category
         </button>
     </div>
 @endsection
@@ -32,7 +32,7 @@
         <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm animate-fade-up delay-2">
             <div class="px-5 sm:px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <div class="text-[15px] font-bold text-gray-900" style="font-family:'Sora',sans-serif">
-                    Daftar Kategori
+                    Categories List
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 @empty
                     <div class="px-6 py-10 text-center text-sm text-gray-400">
                         <i class="ri-price-tag-3-line text-3xl block mb-2 text-gray-300"></i>
-                        Belum ada data kategori.
+                        There is no category data yet.
                     </div>
                 @endforelse
             </div>
@@ -77,12 +77,12 @@
                                 class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3 w-10">
                                 #</th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Nama Kategori</th>
+                                Category Name</th>
                             <th class="text-left text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
                                 Slug</th>
                             <th
                                 class="text-center text-[11px] font-semibold tracking-wide uppercase text-gray-400 px-6 py-3">
-                                Aksi</th>
+                                Actions</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
@@ -118,7 +118,7 @@
                             <tr>
                                 <td colspan="4" class="px-6 py-10 text-center text-sm text-gray-400">
                                     <i class="ri-price-tag-3-line text-2xl block mb-2 text-gray-300"></i>
-                                    Belum ada data kategori.
+                                    There is no category data yet.
                                 </td>
                             </tr>
                         @endforelse
@@ -129,7 +129,7 @@
             {{-- Empty search state --}}
             <div id="emptySearch" class="hidden px-6 py-12 text-center">
                 <div class="flex flex-col items-center text-gray-400">
-                    <p class="text-sm font-medium">Kategori tidak ditemukan</p>
+                    <p class="text-sm font-medium">Category not found.</p>
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@
         class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity">
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-fade-up">
             <div class="flex items-center justify-between px-6 py-4 bg-primary/10 border-b border-blue-50">
-                <h3 class="text-sm font-bold text-gray-900">Tambah Kategori</h3>
+                <h3 class="text-sm font-bold text-gray-900">Add Category</h3>
                 <button onclick="closeModal('addModal')"
                     class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 cursor-pointer hover:text-gray-600 transition-all">
                     <i class="ri-close-line text-lg"></i>
@@ -151,7 +151,7 @@
             <form action="{{ route('categories.store') }}" method="POST" class="px-6 py-5 flex flex-col gap-4">
                 @csrf
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1.5">Nama Kategori</label>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1.5">Category Name</label>
                     <input id="addName" name="name" type="text" placeholder="Contoh: Pemrograman"
                         class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all">
                     @error('name')
@@ -174,7 +174,7 @@
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-fade-up">
             {{-- Header --}}
             <div class="flex items-center justify-between px-6 py-4 bg-yellow-50 border-b border-yellow-100">
-                <h3 class="text-sm font-bold text-gray-900">Ubah Nama Kategori</h3>
+                <h3 class="text-sm font-bold text-gray-900">Edit Category Name</h3>
                 <button onclick="closeModal('editModal')"
                     class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:bg-yellow-100/50 cursor-pointer hover:text-gray-600 transition-all">
                     <i class="ri-close-line text-lg"></i>
@@ -186,18 +186,18 @@
                 @csrf
                 @method('PUT')
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1.5">Nama Kategori</label>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1.5">Category Name</label>
                     <input type="text" id="editName" name="name"
                         class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 outline-none focus:border-yellow-400 focus:bg-white focus:ring-2 focus:ring-yellow-100 transition-all">
                 </div>
                 <div class="flex gap-2 pt-1">
                     <button type="button" onclick="closeModal('editModal')"
                         class="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-all">
-                        Batal
+                        Cancel
                     </button>
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 rounded-xl bg-primary hover:opacity-90 cursor-pointer text-white text-sm font-semibold transition-all flex items-center justify-center gap-1.5">
-                        Simpan Perubahan
+                        Save Changes
                     </button>
                 </div>
             </form>
@@ -212,20 +212,20 @@
                 <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-3">
                     <i class="ri-delete-bin-line text-2xl"></i>
                 </div>
-                <h3 class="text-base font-bold text-gray-900 mb-1">Hapus Kategori?</h3>
-                <p class="text-xs text-gray-500">Tindakan ini tidak dapat dibatalkan.</p>
+                <h3 class="text-base font-bold text-gray-900 mb-1">Delete Category?</h3>
+                <p class="text-xs text-gray-500">This action cannot be undone.</p>
             </div>
             <div class="px-6 pb-6 flex gap-2">
                 <button type="button" onclick="closeModal('deleteModal')"
                     class="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-all">
-                    Batal
+                    Cancel
                 </button>
                 <form id="deleteForm" method="POST" class="flex-1">
                     @csrf
                     @method('DELETE')
                     <button type="submit"
                         class="w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-red-500 hover:bg-red-600 transition-all flex items-center justify-center gap-1.5 shadow-sm">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </form>
             </div>
