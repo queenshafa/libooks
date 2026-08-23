@@ -100,9 +100,6 @@
     <!-- Desc -->
     <section class="min-h-screen bg-secondary py-16 px-8">
         <div class="flex flex-col lg:flex-row lg:gap-x-20 lg:mb-20">
-            <div>
-                <img src="/assets/all-books-img.jpg" alt="" class="rounded-2xl lg:w-7xl" />
-            </div>
             <div class="lg:max-w-2xl">
                 <h2 class="text-4xl font-bold mt-4">About {{ $book->title }}</h2>
                 <p class="mt-4 font-light tracking-tight">
