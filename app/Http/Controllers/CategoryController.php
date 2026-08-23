@@ -21,8 +21,8 @@ class CategoryController extends Controller
         'name' => 'required|string|max:225'
         ],
         [
-        'name.required' => 'Nama tidak boleh kosong',
-        'name.max' => 'Maksimal 225 karakter',
+        'name.required' => 'Name cannot be blank',
+        'name.max' => 'Max. 225 characters',
         ]
         );
 
@@ -32,7 +32,7 @@ class CategoryController extends Controller
         'slug' => Str::slug($request->name)
         ]);
 
-        return back()->with('success', 'Kategori berhasil ditambahkan!');
+        return back()->with('success', 'Category successfully added!');
     }
 
     // Update data
@@ -42,8 +42,8 @@ class CategoryController extends Controller
         'name' => 'required|string|max:225'
         ],
         [
-        'name.required' => 'Nama tidak boleh kosong',
-        'name.max' => 'Maksimal 225 karakter',
+        'name.required' => 'Name cannot be blank',
+        'name.max' => 'Max. 225 characters',
         ]
         );
 
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         'slug' => Str::slug($request->name)
         ]);
 
-        return back()->with('success', 'Kategori berhasil diubah!');
+        return back()->with('success', 'Category successfully updated!');
     }
 
     // Hapus Kategori
@@ -67,7 +67,7 @@ class CategoryController extends Controller
         // menghapus data
         $category->delete();
 
-        return back()->with('success', 'Kategori berhasil dihapus!');
+        return back()->with('success', 'Category successfully deleted!');
 
     }
 };

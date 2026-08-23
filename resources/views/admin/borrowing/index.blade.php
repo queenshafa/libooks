@@ -130,17 +130,17 @@
                                 <p class="text-xs font-semibold text-gray-800 line-clamp-1">
                                     <i class="ri-book-2-line text-blue-500 mr-1"></i>{{ $borrowing->book->title ?? '-' }}
                                 </p>
-                                <p class="text-[11px] text-gray-400 mt-0.5">Durasi: {{ $borrowing->duration }} Hari</p>
+                                <p class="text-[11px] text-gray-400 mt-0.5">Duration: {{ $borrowing->duration }} Days</p>
                             </div>
                         </div>
 
                         <div class="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-gray-50">
                             <div class="flex flex-col text-[11px]">
-                                <span>Pinjam:
+                                <span>Borrowed:
                                     <b>{{ \Carbon\Carbon::parse($borrowing->borrow_date)->translatedFormat('d M Y') }}</b></span>
                                 <span
                                     class="{{ $borrowing->status === 'dipinjam' && now()->gt($borrowing->return_date) ? 'font-bold text-red-500' : '' }}">
-                                    Kembali:
+                                    Returned:
                                     <b>{{ \Carbon\Carbon::parse($borrowing->return_date)->translatedFormat('d M Y') }}</b>
                                 </span>
                             </div>

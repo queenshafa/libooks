@@ -43,7 +43,7 @@ class BookController extends Controller
             'description'  => $request->description
         ]);
 
-        return redirect(route('admin.book.index'))->with('success', 'Buku berhasil ditambahkan!');
+        return redirect(route('admin.book.index'))->with('success', 'Book successfully added!');
     }
 
     public function detail($id) {
@@ -90,7 +90,7 @@ class BookController extends Controller
             'description'  => $request->description
         ]);
 
-        return redirect(route('admin.book.index'))->with('success', 'Buku berhasil diperbarui!');
+        return redirect(route('admin.book.index'))->with('success', 'Book successfully updated!');
     }
 
     public function destroy($id) {
@@ -102,7 +102,7 @@ class BookController extends Controller
         }
 
         $book->delete();
-        return back()->with('success', 'Buku berhasil dihapus!');
+        return back()->with('success', 'Book successfully deleted!');
 
     }
 

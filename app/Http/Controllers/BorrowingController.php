@@ -42,7 +42,7 @@ class BorrowingController extends Controller
            $borrowing->book->increment('stock');
        }
 
-        return redirect()->back()->with('success', 'Status berhasil diupdate!');
+        return redirect()->back()->with('success', 'Status successfully updated!');
    }
 }
 

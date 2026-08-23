@@ -203,7 +203,7 @@
                         No registration required. Just follow these 3 steps and start
                         reading.
                     </p>
-                    <a href="#"
+                    <a href="{{ route('front.all-books') }}"
                         class="inline-flex items-center justify-between gap-4 bg-primary border border-gray rounded-sm py-2 pl-4 pr-2 mt-6 max-w-sm">
                         <span class="text-base text-gray font-semibold tracking-wide uppercase">I want to borrow
                             books!</span>
@@ -276,7 +276,8 @@
     <section class="min-h-screen bg-gray-900">
         <div class="relative w-full h-screen overflow-hidden cards-wrapper">
             <!-- Card 1 -->
-            <img src="{{ asset('/assets/about-us-img-1.jpg') }}" class="bg-layer bg-card bg-card-1" alt="Proses Cepat" />
+            <img src="{{ asset('/assets/about-us-img-1.jpg') }}" class="bg-layer bg-card bg-card-1"
+                alt="Proses Cepat" />
 
             <!-- Card 2 -->
             <img src="{{ asset('/assets/about-us-img-2.jpg') }}" class="bg-layer bg-card bg-card-2" alt="Pemrograman" />
