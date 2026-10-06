@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TailwindCSS -->
-    <link rel="stylesheet" href="/src/output.css" />
     <!-- Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- Leaflet -->
@@ -41,7 +39,7 @@
             <!-- Nav -->
             <ul class="flex flex-col gap-2">
                 <li>
-                    <a href="index.html"
+                    <a href="{{ route('welcome') }}"
                         class="text-6xl font-instrument-serif opacity-50 hover:opacity-100 transition-opacity duration-300 py-2 block">Home</a>
                 </li>
 

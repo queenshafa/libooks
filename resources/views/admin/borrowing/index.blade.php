@@ -105,9 +105,8 @@
                             @php
                                 $statusClasses = [
                                     'pending' => 'bg-yellow-50 text-yellow-600 border-yellow-200',
-                                    'dipinjam' => 'bg-blue-50 text-blue-600 border-blue-200',
+                                    'borrowed' => 'bg-blue-50 text-blue-600 border-blue-200',
                                     'returned' => 'bg-green-50 text-green-600 border-green-200',
-                                    'dikembalikan' => 'bg-green-50 text-green-600 border-green-200',
                                 ];
                                 $badgeClass =
                                     $statusClasses[strtolower($borrowing->status)] ??
@@ -139,7 +138,7 @@
                                 <span>Borrowed:
                                     <b>{{ \Carbon\Carbon::parse($borrowing->borrow_date)->translatedFormat('d M Y') }}</b></span>
                                 <span
-                                    class="{{ $borrowing->status === 'dipinjam' && now()->gt($borrowing->return_date) ? 'font-bold text-red-500' : '' }}">
+                                    class="{{ $borrowing->status === 'borrowed' && now()->gt($borrowing->return_date) ? 'font-bold text-red-500' : '' }}">
                                     Returned:
                                     <b>{{ \Carbon\Carbon::parse($borrowing->return_date)->translatedFormat('d M Y') }}</b>
                                 </span>
@@ -226,7 +225,7 @@
 
                                 <td class="px-6 py-4 text-center text-xs">
                                     <span
-                                        class="{{ $borrowing->status === 'dipinjam' && now()->gt($borrowing->return_date) ? 'font-bold text-red-500' : 'text-gray-600' }}">
+                                        class="{{ $borrowing->status === 'borrowed' && now()->gt($borrowing->return_date) ? 'font-bold text-red-500' : 'text-gray-600' }}">
                                         {{ \Carbon\Carbon::parse($borrowing->return_date)->translatedFormat('d M Y') }}
                                     </span>
                                 </td>
@@ -235,9 +234,8 @@
                                     @php
                                         $statusClasses = [
                                             'pending' => 'bg-yellow-50 text-yellow-600 border-yellow-200',
-                                            'dipinjam' => 'bg-blue-50 text-blue-600 border-blue-200',
+                                            'borrowed' => 'bg-blue-50 text-blue-600 border-blue-200',
                                             'returned' => 'bg-green-50 text-green-600 border-green-200',
-                                            'dikembalikan' => 'bg-green-50 text-green-600 border-green-200',
                                         ];
                                         $badgeClass =
                                             $statusClasses[strtolower($borrowing->status)] ??
@@ -285,8 +283,8 @@
                 <select name="status" id="modalSelect"
                     class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 mb-5 outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all">
                     <option value="pending">Pending</option>
-                    <option value="dipinjam">Borrowed</option>
-                    <option value="dikembalikan">Returned</option>
+                    <option value="borrowed">Borrowed</option>
+                    <option value="returned">Returned</option>
                 </select>
 
                 <div class="flex gap-2">

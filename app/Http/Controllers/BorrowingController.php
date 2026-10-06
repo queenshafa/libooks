@@ -33,6 +33,11 @@ class BorrowingController extends Controller
 
    public function updateStatus(Request $request, $id)
    {
+
+   $request->validate([
+    'status' => 'required|in:pending,borrowed,returned'
+   ]);
+   
        $borrowing = Borrowing::findOrFail($id);
        $borrowing->status = $request->status;
        $borrowing->save();
